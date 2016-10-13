@@ -1,1 +1,1 @@
-# synphony-community
+# synphony-community-edition
