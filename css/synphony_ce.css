@@ -1,0 +1,1296 @@
+/* ========= Base definitions ========= */
+/*
+  Base rules are the defaults. They are almost exclusively single
+  element selectors but it could include attribute selectors,
+  pseudo-class selectors, child selectors or sibling selectors.
+  Essentially, a base style says that wherever this element is on
+  the page, it should look like this.
+*/
+html {
+  font: 16px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  line-height: 24px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 2em;
+  background-color: #eeeeee;
+}
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+h2 {
+  padding: 0px;
+  margin: 0px;
+  border-bottom: 1px dotted #808080;
+}
+h5 {
+  border-top: 1px solid #3B9EEF;
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+  font-variant: small-caps;
+}
+hr {
+  margin: 0;
+  padding: 0px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  border-width: 0px;
+}
+form, table, ul {
+  padding: 0px;
+  margin: 0px;
+}
+input {
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+}
+label {
+  cursor: pointer;
+  display: inline-block;
+}
+button {
+  margin: 2px;
+}
+button:hover {
+  cursor: pointer;
+}
+input:hover {
+  cursor:pointer;
+}
+
+/* layout.css
+	Layout rules divide the page into sections.
+	Layouts hold one or more modules together.
+*/
+/* ========= Static Page Layout components ========= */
+/* #main_content and panels are defined in desktop.css */
+
+li#panel_2 div#panelToggle {
+  width: 15px;
+  position: relative;
+  top: 5px;
+  height: 100px;
+  cursor: col-resize;
+  transition: all 250ms ease-in-out 0s;
+}
+
+div#panelToggle.ltr{
+  left: -5px;
+  background: url("../graphics/tab_ltr_close.png") no-repeat left center transparent;
+}
+div#panelToggle.rtl{
+  right: -5px;
+  background: url("../graphics/tab_rtl_close.png") no-repeat left center transparent;
+}
+div#panelToggle.ltr:hover{
+  left: -2px;
+  transition: left 0.2s linear 0s;
+}
+div#panelToggle.rtl:hover{
+  right: -3px;
+  transition: right 0.2s linear 0s;
+}
+div#panelToggle:hover{
+  z-index: 4;
+  outline: 1px dotted #99CCFF;
+}
+#panelToggle.ltr.close{
+  background: url("../graphics/tab_ltr_open.png") no-repeat left center transparent;
+}
+#panelToggle.rtl.close{
+  background: url("../graphics/tab_rtl_open.png") no-repeat left center transparent;
+}
+#footer {
+  border-top: 1px solid #888888;
+  border-bottom: 1px solid #888888;
+  width: 100%;
+  text-align: center;
+  color: #888888;
+  background-color: #E1ECF7;
+  box-shadow: 0px 5px 5px #888;
+  margin-top: 4em;
+}
+#footer_content {
+  margin: 1em;
+  font-size: smaller;
+  line-height: normal;
+}
+#top_bar {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 1000;
+  height: 30px;
+  background-color: #99CCFF;
+  border-bottom: 1px solid #808080;
+  box-shadow: 0px 5px 5px #888;
+}
+h3.title {
+  position: fixed;
+  height: 28px;
+  margin: 0px 0px 0px 2px;
+  padding-top: 2px;
+  text-indent: 10px;
+  z-index: 6;
+  font-weight: lighter;
+  font-size: 20px;
+}
+#loading_data {
+  margin-top: 3em;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* ========= Menu Bar ========= */
+div#menu_bar {
+  position: fixed;
+  right: 10px;
+  top: 4px;
+  z-index: 5;
+  text-align: right;
+  width: 100%;
+}
+#menu_bar ul {
+  float: right;
+}
+#menu_bar ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0;
+}
+div#menu_bar li.circ {
+  border: 1px solid #409CCF;
+  border-radius: 50%;
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 1px;
+  background: #c5deea; /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M1ZGVlYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMxJSIgc3RvcC1jb2xvcj0iIzhhYmJkNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjZkYWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c5deea), color-stop(31%,#8abbd7), color-stop(100%,#066dab)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 ); /* IE6-8 */
+}
+div#menu_bar li.circ:hover {
+  box-shadow: 0px 0px 2px #fff, 0px 0px 4px #fff;
+  background: linear-gradient(to top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C */
+}
+li.circ img {
+  position: relative;
+}
+li.circ img.nonsense, li.circ img.story {
+  top: 1px;
+}
+li.circ img.reports {
+  left: 1px;
+}
+#login_area {
+  font-size: 13px;
+  color: #085F8F;
+  margin-right: 5px;
+}
+.logout, .login {
+  padding: 4px;
+}
+.login:hover {
+  background-color: #42A0FF;
+  cursor: pointer;
+}
+#login_name {
+  height: 15px;
+}
+
+/* modules.css
+	Modules are the reusable, modular parts of our design.
+	In SynPhony they are: the home page, word lists,
+	nonsense pages, story checking tool, games, reports,
+	settings and help pages.
+	It also includes the control panel, the activity controls,
+	activity page.
+*/
+/* ========= Home Page ========= */
+#activity.home {
+  margin-bottom: 3em;
+}
+.home_page_menu {
+  text-align: center;
+  margin: 4%;
+}
+.home_page_menu img{
+  vertical-align: middle;
+  margin: 10px;
+}
+.home #activity_title {
+}
+.splash_menu {
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid white;
+}
+.splash_menu:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px #99CCFF;
+  border-radius: 15px;
+  border: 1px solid #99CCFF;
+  transition: all 100ms ease-in-out 0s;
+}
+/* end of Home page */
+
+/* ========= Help Section ========= */
+iframe#helpArea {
+  border: 0px none white;
+  position: relative;
+  width: 100%;
+  width: calc(100%);
+  width: -moz-calc(100%);
+  width: -webkit-calc(100%);
+  background-color: white;
+}
+span.helpButton {
+  float: right;
+  position: relative;
+  top: 1px;
+  z-index: 5;
+  cursor: pointer;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 5px;
+  font-size: 14pt;
+  display: block;
+  color: #2E81D3;
+  line-height: 100%;
+}
+span.helpButton:hover {
+  color: red;
+  text-shadow: 0px 0px 3px #FFFFFF, 0px 0px 5px #FFFFFF, 0px 0px 7px #FFFFFF;
+}
+#activity_controls span.helpButton {
+  top: calc(50% - 7pt);
+  right: 0px;
+  position: absolute;
+}
+#activity_area > span.closeHelpButton {
+  z-index: 50;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  float: left;
+  font-size: 1.5em;
+  opacity: .17;
+}
+#activity_area > span.closeHelpButton:hover {
+  color: red;
+  opacity: 1;
+  text-shadow: 0px 0px 2px #666666;
+}
+/* ========= end of Help section ========= */
+
+.header {
+  font-weight: bold;
+  background-color: #AFD7FF;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3px;
+  line-height: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  padding-left: 5px;
+}
+.separator {
+  font-weight: bold;
+  background-color: #31669F;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3px;
+  line-height: 20px;
+  padding-left: 5px;
+}
+/* STATE rules state.css */
+/*
+	State rules are ways to describe how our modules or layouts will
+	look when in a particular state. Is it hidden or expanded? Is it
+	active or inactive? They are about describing how a module or layout
+	looks on screens that are smaller or bigger. They are also about
+	describing how a module might look in different views like the
+	home page or the inside page.
+*/
+
+.is-block{
+	display: block !important;
+}
+.is-none {
+	display: none !important;
+}
+.is-table-cell {
+  display: table-cell;
+}
+.has-darrow:before {
+	content: '▼ ';
+}
+.has-rarrow:before {
+	content: '► ';
+}
+.ltr {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+  text-align: left;
+}
+.rtl {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  text-align: right;
+}
+.hide {
+  display: none;
+}
+.focus {
+  color: #FF0000;
+}
+
+.header:hover {
+  background-color: #42A0FF;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+/* ========= Control Panel ========= */
+.control_panel {
+  width: 215px;
+}
+#control_panel {
+  border-bottom: 1px solid #808080;
+  padding: 12px 5px;
+  position: relative;
+  z-index: 3;
+  background-color: #99CCFF;
+  font-size: 10pt;
+  line-height: 18px;
+}
+#control_panel.ltr {
+  border-right: 1px solid #808080;
+  left: 0px;
+  box-shadow: 5px 5px 5px #888;
+  border-bottom-right-radius: 20px;
+}
+#control_panel.rtl {
+  border-left: 1px solid #808080;
+  right: 0px;
+  box-shadow: -5px 5px 5px #888;
+  border-bottom-left-radius: 20px;
+}
+
+/* ========= Options section ========= */
+#options table, #options table td {
+  padding: 0px;
+}
+#options label, #activity_controls label, #wordsearch label, #lettergrid label, #syllshape label, #activity_controls a, .logout, .login, a, #settingsArea label {
+  padding: 0 2px;
+  border-radius: 3px;
+  opacity: 1;
+}
+#options label:hover, #activity_controls label:hover, #wordsearch label:hover, #lettergrid label:hover, #syllshape label:hover, #activity_controls a:hover, .logout:hover, .login:hover, a:hover, #settingsArea label:hover {
+  background-color: #3399FF;
+  cursor: pointer;
+  color: white;
+}
+.options_div{
+  border-bottom: 1px solid #7FBFFF;
+  padding: 3px 0;
+}
+#vocab_list input{
+  top: -2px;
+}
+.removeFromScreen{/* used to leave DOM element active but off screen  */
+  position: absolute;
+  top: -100000em;
+}
+#wordsearch select {
+  margin: 3px 0;
+}
+div.header + div, div.header + table {
+  margin-bottom: 5px;
+}
+#clearHistory {
+	margin-top: 7px;
+}
+
+/* ========= GPC Labels ========= */
+/*
+GPC labels occur in various page elements:
+Letters, Vowels, Consonants, Initial Consonant Clusters,
+and Final Consonant Clusters
+*/
+
+#gpcspagecontrol, #vowelspagecontrol, #consonantspagecontrol, #wiccpagecontrol, #wfccpagecontrol, #wmccpagecontrol {
+  float: right;
+  font-size: 12px;
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+}
+.spinners {
+  color: #888888;
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+  text-align: center;
+  width: 20px;
+}
+.spinners:hover {
+  color: black;
+  cursor: pointer;
+  background-color: #5FB0FF;
+}
+input.gpc_checkbox, input.cluster_checkbox {
+  display: none !important;
+}
+input[type="text"] {
+  height: 12px;
+  top: -1px;
+}
+label.gpc {
+  display: inline-block;
+  position: relative;
+  line-height: 150%;
+  white-space: nowrap;
+  text-align: center;
+  border: 2px solid #99CCFF;
+  z-index: 3;
+  border-radius: 25%;
+  background-color: #AAD5FF; /*CAE8FF;*/
+  margin: 3px;
+  padding: 0 3px;
+}
+label.gpc.gpcs, label.gpc.vowels, label.gpc.consonants {
+  min-width: 20px;
+}
+label.gpc.wicc, label.gpc.wfcc {
+  padding: 0 4px;
+  min-width: 20px;
+  display: inline-block;
+}
+label.gpc.active{
+  background-color: #77C1FF !important;
+  border: 2px outset #77C1FF;
+  background: #deefff; /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#deefff), color-stop(100%,#77c1ff)); /* Chrome,Safari4+ */
+  background: linear-gradient(90deg,  #deefff 0%,#77c1ff 100%); /* W3C */
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#77c1ff',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+}
+label.gpc.focus{
+  border: 2px outset #77C1FF;
+  color: red;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px #FFF, 0px 0px 8px #FFF;
+  background: #49a5bf; /* Old browsers */
+  box-shadow: 2px 2px 2px #aaa;
+}
+label:active, label.active:active {
+  background-color: #DBDBDB !important;
+}
+label.gpc.active:hover {
+  border: 2px outset #0089F9;
+}
+label.gpc:hover {
+  border: 2px outset #C1E3FF;
+}
+label.gpc span {
+  position: relative;
+  bottom: 1px;
+}
+
+/* ========= Syllable Shapes ========= */
+table#syllshape label {
+  width: 70px;
+  display: inline-block;
+}
+table#syllshape label#l_wfc, table#syllshape label#l_wfcc {
+  margin-left: 10px;
+}
+table#syllshape label#l_wic, table#syllshape label#l_wicc {
+  margin-right: 10px;
+}
+table#syllshape td#nonsenseVowel {
+  outline: 1px solid #42A0FF;
+  vertical-align: middle;
+  padding: 5px;
+  text-align: center;
+}
+#wfcc_gpc, #wicc_gpc {
+  display: block;
+}
+/* end GPC label section */
+
+.nohighlight {
+  background-color: #99CCFF !important;
+  cursor: default !important;
+  text-align: right;
+}
+#columns span.col:hover{
+  background-color: #42A0FF;
+}
+#columns input{
+  top: -4px;
+}
+.changeFSize {
+  height: 24px;
+  position: relative;
+  top: 2px;
+}
+.changeFSize:hover {
+  opacity: 1;
+}
+.changeFSize span {
+  font-family: "Arial Black", Impact, "Comic Sans MS", sans-serif;
+}
+#debug {
+  border: 1px solid #FF0000;
+  bottom: 20px;
+  left: 10px;
+  right: 10px;
+  position: absolute;
+  display: none;
+  z-index: 3;
+  height: auto;
+}
+/* ========= Activity Area ========= */
+
+#activity_controls {
+  border: 1px solid #BBBBBB;
+  padding: 5px 20px 5px 5px;
+  background-color: #DDDDDD;
+  text-align: center;
+  position: relative;
+  margin: 10px;
+  margin-bottom: 20px;
+  font-size: smaller;
+  border-radius: 5px;
+}
+#activity_controls > span {
+  padding: 0 7px;
+  text-align: center;
+  white-space: nowrap;
+}
+#activity_controls #columns label, #options #vocab_list label, #options #syll_length label {
+  padding: 0px 2px;
+}
+.activity_panel.ltr.reports #activity_controls {
+  text-align: left;
+}
+#activity_area {
+  padding: 10px 30px 40px;
+  position: relative;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px #888;
+  border-radius: 17px;
+}
+div#activity {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#activity_title {
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+#activity_title #focus_grapheme {
+  font-size: 1.4em;
+  line-height: 1em;
+}
+#testorthography {
+	padding-left: 50px;
+}
+input#replacementGPC {
+	font-size: 1em;
+	height: 1.3em;
+}
+#lesson_area li {
+  list-style-type: decimal;
+}
+#lesson_area h1 {
+  font-size: 1.1em;
+  text-align: center;
+}
+#lesson_area.text{
+  font-size: 1em;
+}
+#lesson_area.text p{
+  padding: 0;
+  line-height: 120%;
+}
+#lesson_area div.readableTextUnit{
+  border-bottom: 1px dotted #ddd;
+  margin: 10px 0;
+  padding-bottom: 5px;
+  font-size: 1em;
+}
+#lesson_area div.textMetaData {
+  color: #888;
+  float: left;
+  font-size: .8em;
+  padding-right: 10px;
+  position: relative;
+  top: 1px;
+}
+#lesson_area.rtl div.textMetaData {
+	float: right;
+	padding-left: 10px;
+}
+#lesson_area .count {
+  width: 1.7em;
+}
+#lesson_area .rank {
+  width: 4em;
+}
+#lesson_area div.text{
+}
+#lesson_area div.words {
+  color: brown;
+  margin-left: 12em;
+}
+#activity_title div.readableTextPagePosition{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  position: relative;
+  width: 230px;
+  font-size: 12pt;
+}
+#activity_title span.pageLess {
+	position: absolute;
+	left: 0px;
+}
+#activity_title span.pageMore {
+	position: absolute;
+	right: 0px;
+}
+#activity_title span.readableTextPageControl {
+  color: #aaaaaa;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+#activity_title span.readableTextPageControl:hover {
+  cursor: pointer;
+  color: #FF0000;
+  text-shadow: 0 0 3px #000;
+}
+#activity_title span#readableTextPageMinusTen, #activity_title span#readableTextPagePlusTen {
+  font-size: 23px;
+}
+#activity_title span#readableTextPageOne, #activity_title span#readableTextPageLast {
+  font-size: 13px;
+}
+#lesson_area div.good {
+  color: blue;
+  font-size: smaller;
+  margin-left: 140px;
+}
+table#wordlist {
+  margin-left: auto;
+  margin-right: auto;
+}
+table#wordlist td {
+  line-height: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+table#wordlist.ltr td {
+  text-align: left;
+}
+table#wordlist.rtl td {
+  text-align: right;
+}
+table#wordlist.ltr td:nth-child(1n+2){
+  padding-left: 2em;
+}
+table#wordlist.rtl td:nth-child(1n+2){
+  padding-right: 2em;
+}
+.word{
+  visibility: visible;
+  opacity: 1;
+}
+#resetTimer{
+  display: none;
+}
+#timer {
+  display: none;
+}
+.milestone {
+  color: green;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 5px;
+  vertical-align: middle;
+  opacity: 0.5;
+  display: none;
+}
+.milestone:hover{
+  color: green;
+  background-color: #EFEFEF;
+  opacity: 1;
+}
+/* ========= Writing Exercise === */
+div.writingExerciseLine {
+	margin-top: 2em;
+	position: relative;
+	cursor: pointer;
+}
+div.asc {
+	border-bottom: 1px dashed gray;
+	height: 0px;
+}
+div.desc {
+	border-top: 1px dashed gray;
+	height: 0px;
+}
+div.x.Andika {
+	letter-spacing: 3px;
+	border-top: 1px dashed red;
+	border-bottom: 1px dashed red;
+	margin: .8em 0 .7em 0;/* pushes ascender and descender away */
+}
+div.text.Andika{
+	font-family: Andika;
+	font-size: 3em;
+	line-height: 50%;
+	position: relative;
+	top: -.15em;
+}
+div.text.Scheherazade {
+	font-size: 3em;
+	font-family: Scheherazade;
+	position: relative;
+}
+div.x.Scheherazade {
+	margin: .5em 0 .7em 0;
+	border-top: 1px dashed red;
+	border-bottom: 1px dashed red;
+}
+div.text.Annapurna {
+	font-size: 3em;
+	font-family: Annapurna SIL;
+	line-height: 63%;
+	position: relative;
+	top: .1em;
+}
+div.x.Annapurna {
+	margin: .7em 0 -1em 0;
+	border-top: 1px dashed red;
+	border-bottom: 1px dashed red;
+}
+/* ========= Story Tool ========= */
+table#story_area {
+  width: 100%;
+  text-align: center;
+}
+table#story_area td {
+  vertical-align: top;
+}
+table#story_area td#left_story_area {
+  width: 30%;
+}
+table#story_area td#right_story_area {
+  width: 70%;
+}
+#story_area h1{
+  font-size: 1em;
+  text-align: center;
+  margin: 10px 0 3px 0;
+  padding: 0;
+  font-weight: normal;
+  background-color: #99CCFF;
+  border: 1px solid #539ADF;
+}
+#story_io button{
+  text-align: center;
+}
+#story_input{
+  height: 130px;
+  width: 99%;
+}
+#story_check_time {
+  float: right;
+  font-size: 10px;
+  margin-top: 2px;
+}
+#story_output{
+  margin-top: 2px;
+  border: 1px dotted red;
+  padding: 10px;
+  line-height: 195%;
+  font-size: 1em;
+  background-color: #eeeeee;
+}
+#sight_words_header, #h1_text_stats_title {
+  cursor: pointer;
+  text-align: center;
+}
+.sight_words {
+  width: 99%;
+  margin-bottom: 5px;
+}
+div#plain_words_list {
+  -moz-column-count: 3;
+  -moz-column-gap: 5px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 5px;
+  column-count: 3;
+  column-gap: 5px;
+  overflow-x: auto;
+  overflow: visible;
+  border: 1px solid #ccc;
+  background: #CFFFCF;
+  padding: 0 5px;
+  font-size: 11pt;
+  line-height: 130%;
+}
+.fo { /* focus word */
+  background-color: #ffffff; /*#99FF9F;*/
+  color: red;
+}
+.cu { /* cumulative word bank */
+  background-color: #FFF;
+}
+.sight, #sight_words {/* sight word */
+  background-color: #FFC6C6;
+}
+.po { /* possibly decodable but not in list of words */
+  background: #BFDFFF;
+}
+#readability {
+	text-align: center;
+	margin: 10px 0 0 0;
+}
+#text_stats, #text_scoring_formulas {
+	float: left;
+	box-shadow:0 0 5px #DDDDDD;
+	margin: 3%
+}
+#story_stats table {
+	font-size: small;
+	-moz-border-radius: 2px;
+	-moz-box-shadow: 0 1px 2px #eee;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0 1px 2px #eee;
+	background: #eaebec;
+	border: #ccc 1px solid;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px #eee;
+	text-shadow: 1px 1px 0px #fff;
+	padding: 5px;
+}
+
+#story_stats table tr.even td {
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top, #f8f8f8, #f6f6f6);
+	background: -o-linear-gradient(top, #f8f8f8, #f6f6f6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f6f6f6'); /* for IE */
+}
+
+#story_stats table th {
+	padding: 0 7px;
+	border-bottom: 1px solid #e0e0e0;
+	border-top: 1px solid #fafafa;
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+	background: -moz-linear-gradient(top, #ededed, #ebebeb);
+	background: -o-linear-gradient(top, #ededed, #ebebeb);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ebebeb'); /* for IE */
+}
+
+#story_stats table tr:last-child td {
+	border-bottom: 0;
+}
+
+#story_stats table tr td {
+	padding: 0 5px;
+	border-bottom: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; border-top: 1px solid #ffffff;
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
+	background: -o-linear-gradient(top, #fbfbfb, #fafafa);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbfbfb', endColorstr='#fafafa'); /* for IE */
+}
+
+#story_stats table tr td:first-child {
+	border-left: 0;
+	text-align: left
+}
+
+#story_stats table tr td:nth-child(even) {
+	text-align: center;
+}
+
+/* end of Story Tool section */
+
+.n { /* nonsense words */
+  color: red;
+}
+.page {
+  width: 7in;
+}
+.page-break {
+  display: none;
+}
+#help_area {
+  background-color: #EEEEEE;
+  border: 1px solid red;
+  display: none;
+  height: 3em;
+  position: relative;
+  z-index: 2;
+}
+.sb {
+/*syllable break character in multi-syllable words*/
+  color: #B2B2B2;
+  display: none;
+}
+.stress {
+/*style gets changed by javascript*/
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* ========= LetterGrid ========= */
+#lesson_area #letterGrid{
+  padding:1em;
+  border:1px solid #dddddd;
+  margin-right: auto;
+  margin-left: auto;
+  border:0px solid #cccccc;
+  vertical-align:top;
+  background-color:#fff;
+  box-shadow:0 0 15px #000;
+  border-radius:20px;
+}
+#letterGrid td.i{
+  text-align:center;
+  outline:1px dotted #dddddd;
+  padding:0px 5px 0px 5px;
+  font-size: 5mm;
+  width: 7mm;
+  height: 2em;
+}
+#letterGrid td:hover{
+  background-color:#FDDB64;
+  outline: solid 1px #bbbbbb;
+}
+
+/* ========= Wordsearch Puzzle definitions ========= */
+
+/* WordSearch defs */
+#wordsearchdiv{
+  margin:1em;
+}
+#wordsearchdiv h1{
+  font-size:18px;
+  margin:0;
+  padding:0;
+  line-height:60%;
+}
+#puzzleOptionsButtons {
+  text-align: center;
+}
+#puzzleTable {
+  border: 0px solid #cccccc;
+  padding: 25px;
+  vertical-align: middle;
+  background-color: #fff;
+  box-shadow: 0 0 15px #000;
+  border-radius: 20px;
+  display: table-cell;
+}
+#puzzleTable td {
+  background-color: white;
+}
+.wordGrid td{
+  text-align:center;
+  line-height: 7mm;
+  font-size: 4mm;
+  padding: 0 5pt;
+}
+.puzzlespacer1 {
+  width: 15px;
+  border-right: 2px solid black;
+}
+#puzzleTable td.puzzlewordlist {
+  padding-left: 15px;
+  white-space:nowrap;
+  text-align: left;
+}
+/* ========= Reports ========= */
+
+div.chartlist {
+  list-style-type: none;
+  font-size: 12pt;
+  width: 99%;
+}
+div.chartlist.ltr {
+  text-align: left;
+}
+div.chartlist.rtl {
+  text-align: right;
+}
+div.chartlist > div {
+  margin: 7px 0px;
+  overflow: hidden;
+  padding: 1px;
+}
+
+div.chartlist div.item {
+  background-color: #B5ECA2;
+  border: 1px solid olive;
+  box-shadow: 2px 3px 2px #CCCCCC;
+  text-indent: 2px;
+  height: 20px;
+  line-height: 16px;
+
+}
+div.chartlist div.item:hover {
+  background: #75DD4F;
+  cursor: pointer;
+}
+#lesson_area table#GPCtable {
+  margin: auto;
+  border-collapse: collapse;
+}
+#lesson_area table#GPCtable th {
+  padding: 5px;
+}
+#lesson_area table#GPCtable td {
+  border: 1px solid #bfbfbf;
+  padding: 1px 4px;
+  line-height: 125%;
+  white-space: nowrap;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+.gtotal, .gpcRowMax, .gpcRowTotal, .gpcComplexity, .rownum, .cv, .ipa {
+  text-align: center;
+  padding: 0px 3px;
+}
+#GPCtable .colheader {
+  font-weight: bold;
+  font-size: smaller;
+}
+#GPCtable .low {
+  background-color: #FFF7CD;
+  vertical-align: top;
+}
+#GPCtable .mid {
+  vertical-align: top;
+  background-color: #FFEA6F;
+}
+#GPCtable .high {
+  vertical-align: top;
+  background-color: #FFBF00;
+}
+#GPCtable .hl1 { /*highlight */
+  border-color: red ;
+  background-color: #9fffa3;
+}
+#GPCtable .hl2 { /*highlight2 */
+  background-color: #ff80c0;
+}
+#GPCtable .grapheme {
+  line-height: 1em;
+  color: #900000;
+  padding: 0px 5px;
+  font-size: larger;
+}
+#GPCtable .key {
+  color: black;
+  padding: 0px 5px;
+}
+#GPCtable .gpcCellTotal {
+  color: red;
+  padding-left: 5px;
+}
+#GPCtable .ipa {
+  background-color: #9ad2ff;
+}
+ul#prod_chart_container {
+  text-align: center;
+  position: relative;
+}
+ul#prod_chart_container h1 {
+  margin: -1em 0 1em 0;
+  padding: 0;
+  position: relative;
+}
+ul#prod_chart {
+  border-bottom: 2px solid #008000;
+  position: relative;
+  margin-top: 30px;
+}
+ul#prod_chart span.prod_index {
+  bottom: -22px;
+  font-size: 11px;
+  left: 30%;
+  position: absolute;
+}
+ul#prod_chart li {
+	border: 1px solid #555;
+	border-bottom: none;
+	bottom: 0;
+	list-style: none;
+	padding: 0;
+	z-index: 2;
+	position: absolute;
+	text-align: center;
+	background-color: #B5ECA2;
+}
+ul#prod_chart li:hover {
+  background-color: #69CE44 !important;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px #FFFFFF;
+  border-color: black;
+  z-index: 3;
+  color: red;
+}
+.half {
+  background-color: #78E251 !important;
+}
+li.vert .prod_gpc {
+  font-size: 16px;
+  position: relative;
+  top: -30px;
+  text-align: center;
+}
+
+#prod_chart_container div#interval {
+  display: none;
+  position: absolute;
+  height: 90%;
+  bottom: 6%;
+  width: 95%;
+}
+#prod_chart_container div.interval {
+  border-top: 1px dotted #CCCCCC;
+  color: #CCCCCC;
+  font-size: 10pt;
+  position: absolute;
+  text-align: left;
+  text-indent: 10px;
+  width: 100%;
+  z-index: 0;
+}
+
+
+/* ========= Settings ========= */
+#settingsArea {
+  text-align: center;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px 10px;
+  font: 16px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+#settingsArea h3{
+  background-color: #99ccff;
+  margin-bottom: 5px;
+  font-size: larger;
+}
+#settingsArea div {
+  text-align: left;
+  width: 350px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#settingsArea input {
+  position: relative;
+  top: -2px;
+}
+#settingsArea .settingsGroup {
+  font-size: 16px;
+  font-family: serif;
+  line-height: 140%;
+}
+
+/* ========= Printing Rules ========= */
+@media print {
+  /*#activity_area, #main_content, #activity, #top_bar {*/
+  body{
+    background-color: #FFFFFF !important;
+  }
+  #panel_1.ltr, #panel_2, #panel_3.rtl, #menu_bar, #activity_controls, #footer, .sb, .closeHelpButton, #helpArea {
+    display: none !important;
+  }
+  ul#main_content {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-color: #FFFFFF;
+  }
+  li#panel_3.ltr, li#panel_1.rtl  {
+    padding: 0px;
+    display: block;
+    width: 100%;
+  }
+  div#activity_area {
+    border-radius: 0px !important;
+    box-shadow: 0 0 0 white !important;
+    padding: 0;
+  }
+  div#activity {
+    margin-top: 20px;
+  }
+  .page-break {
+    display: block;
+    page-break-before: always;
+  }
+  #lesson_area {
+    margin-top: 1em;
+  }
+  #lesson_area table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h3#title {
+    text-indent: 0px;
+    height: 25px;
+    z-index: 2;
+    width: 100%;
+    position: relative;
+  }
+  #top_bar {
+    box-shadow: 0 0 0 white !important;
+    border-bottom-width: 1px;
+    text-align: center;
+    position: relative;
+  }
+  .readableTextUnit, table#wordlist td {
+    page-break-before: auto;
+  }
+}
+
+/* Page size section */
+@page {
+	size: 8.5in 11in;
+	margin: .25in;
+}

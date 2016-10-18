@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<style type="text/css"></style><!-- don't delete this line!! -->
+	<title>Process Language Data For Literacy</title>
+	<link type="text/css" href="css/segmentation_ce.css" media="all" rel="stylesheet">
+</head>
+<body onload="onload()">
+<div id="container">
+	<div id="top">
+		<div id="localStorageSpace">Browser storage: <span id="storageLeft"></span><progress id="localStorageSpaceBar" max="100" value=""></progress> </div>
+		<div id="header">
+		  <h1>Processing <span id="titleBarLangName"></span> Language Data for Literacy</h1>
+		  <span id="version"></span><span id="lastModified"></span>
+		</div><!--end of header div-->
+		<nav>
+		<div id="nav">
+			<ul>
+				<li class="main_menu" onclick="showMainContentDiv('intro'); return false;"><a href="#" id="introTab" name="tab" class="active">Introduction</a></li>
+				<li class="main_menu" onclick="showMainContentDiv('langdata'); return false;"><a href="#" id="langdataTab" name="tab" class="tab">Language Data</a></li>
+				<li class="main_menu" onclick="showMainContentDiv('segmenting');  return false;"><a href="#" id="segmentingTab" name="tab" class="tab">Segmenting</a></li>
+				<li class="main_menu" onclick="showMainContentDiv('phonotactics'); return false;"><a href="#" id="phonotacticsTab" name="tab" class="tab">Phonotactics</a></li>
+				<li class="main_menu" onclick="showMainContentDiv('output'); return false;"><a href="#" id="outputTab" name="tab" class="tab">Output</a></li>
+				<li class="main_menu" onclick="showMainContentDiv('about'); return false;"><a href="#" id="aboutTab" name="tab" class="tab">About</a></li>
+			</ul>
+		</div><!--end of nav div-->
+		</nav>
+	</div><!--end of top div-->
+	<div id="main-content">
+		<div id="html5Check" class="is-none">Your browser is out-of-date and not able to use this program. Please update your browser first.
+			<a href="http://www.browsehappy.com" target="_blank">Update your browser here.</a>
+		</div>
+		<div id="intro" class="main-content-div">
+			<h1>Introduction</h1>
+			<p><q style="font-style:italic">The chief art of learning, as Locke has observed, is to
+				attempt but little at a time.</q> — Samuel Johnson, 1751.</p>
+			<!-- This is a short summary of one of John Locke’s statements. Possible source text:
+			http://oll.libertyfund.org/title/762/80854#a_1924806 -->
+			<p>This web page can help you process language data to produce literacy materials. It
+				supports a wide range of writing systems such as alphabets, abjads, abugidas, and
+				syllabaries, including scripts that are read from right to left. It can produce
+				several output formats, such as:
+			</p>
+				<ul>
+					<li>word lists constrained by syllable length</li>
+					<li>creating a separate browser-based literacy tool called SynPhony</li>
+				</ul>
+			<p>The browser-based literacy tool SynPhony extends the capabilities of this page and
+				makes it easy to find words that are restricted to certain letters. This can be
+				useful for producing primers, creating reading assessments, writing stories, or as
+				practise reading material in early literacy efforts.
+			</p>
+			<h2>Browser Requirements</h2>
+			<p>This program (and SynPhony) requires a modern browser that supports HTML 5. Some browsers
+				keep you from loading files from your local computer for security reasons. For local
+				files this page has been tested successfully with Firefox, Safari and Chrome. (Google Chrome
+				must be started with the flag <q>-allow-file-access-from-files</q> in order to work properly
+				offline.) If you have any issues with these three browsers please make sure you're running
+				an up-to-date browser first.
+				This page does not work yet with Internet Explorer and Opera. Hopefully soon.</p>
+			<h2>Language Requirements</h2>
+			<p>The language data must be supplied by you and can come from various sources; either
+				texts, stories, or a word list. It is best
+				if each story is in a separate file. In addition, you will also need to know which
+				digraphs are used in the language, if any. In all cases you should ensure that the
+				language data uses correct spelling, proper punctuation conventions and is encoded in Unicode.
+				If you see this character <q>&#xFFFD;</q> anywhere in the output, you need to
+				first convert the data to UTF-8.
+			</p>
+			<p>For comments, questions, suggestions for improvements, bug reports or other forms of
+				encouragement: <span id="mail1"></span>
+			</p>
+			<h3>Overview</h3>
+			<ol>
+				<li>In the <strong>Language Data</strong> tab there are 4 important steps. For Step 1, provide
+					the language name and ISO-639 code. Next, move through the 3 sub tabs: Texts, Letters,
+					and Words. In the Enter Text tab, import the text files by using the <q>Browse</q> buttons.
+					Move to the Letters sub tab and click the <q>Auto detect</q> button to auto detect the writing
+					system. If it can detect it, the program will also fill in the vowels, consonants and other
+					categories for you automatically. If the language has digraphs you will need to add them
+					manually to the Multigraph textboxes. Visually check to see that all the boxes are filled
+					in correctly. Then, move to the Word Lists sub tab and click the Create Word lists button.
+					<!--The IPA sub tab is optional.-->
+				</li>
+				<li>Once the language data has been entered, move on to the <strong>Segmenting </strong> tab
+					and click the <q>Segment Word List from Language Data tab</q> button to process the word list.
+					If the <q>Residue</q> boxes show up then it is because the language data contains characters
+					which are not listed as a grapheme in the <strong>Language Data</strong> tab. The <q>Segment
+					Word List from Language Data tab</q> button <strong>must</strong> be pressed each time you
+					load the page to enable you to use the features in the <strong>Output</strong> tab.
+				</li>
+				<li>In the <strong>Phonotactics</strong> tab you can view the phonotactic analysis as
+					discovered by the program. Phonotactics describe the distribution of letters (or phonemes)
+					within words. Although this tab is only for your information and you don't have to do
+					anything, reviewing the information here can help you spot spelling mistakes or foreign
+					words in your word list due to letters occurring in unexpected positions.
+				</li>
+				<li>In the <strong>Output</strong> tab you can select the format for the data output. Press
+					one of the <q>Output</q> buttons to process that group of words into the format you selected.
+					You may copy the resulting data into your computer’s clipboard for using it elsewhere. More
+					information on the various output formats is available in the Output tab beside each option.
+				</li>
+			</ol>
+		</div><!--end of intro div-->
+
+		<div id="langdata" class="main-content-div">
+			<h2 class="step" id="enter_langname">Step 1. Enter the language name </h2>
+			<div id="langmetadata">
+				<label for="language_name" id="label_language_name" class="">Language Name:</label>
+
+				<input id="language_name" name="language_name" value="" placeholder="Type language name here" type="text" tabindex="1" />
+				<button id="storeLangName" onclick="storeLanguageName();" class="">Create Language Project</button>
+				<div id="localizedLangNameDiv" class="is-none ltr">
+					<label for="localizedLangName" id="label_localizedLangName">Local Name:</label>
+					<input id="localizedLangName" name="localizedLangName" type="text" class="fs vernacular" />
+				</div>
+				<div>
+				<label for="ethnocode">ISO-639 Code:</label>
+					<input id="ethnocode" name="ethnocode" value="" placeholder="Type iso-639 code here" type="text" tabindex="2" maxlength="3" />
+				</div>
+				<div>
+					<label for="span_fontsize" id="span_fontsize" class="span_fontsize" class="">Font size: </label>
+					<span id="changeFSizeDiv1">
+						<button class="changeFSize" onclick="setFontSize('.fs','decrease')"><img src="graphics/minus.png" /></button>
+						<button class="changeFSize" onclick="setFontSize('.fs','increase')"><img src="graphics/plus.png" /></button>
+					</span>
+					<input id="langdata_inputs" name="font-size-holder" type="hidden" value="12" />
+					<input id="review_inputs" name="font-size-holder" type="hidden" value="12" />
+				</div>
+			<span id="add_info" onclick="toggleMoreLangDataInfo();" title="Click to toggle more language information">&nbsp;+&nbsp;</span>
+			<div id="langmetadata-more" class="is-none">
+				<fieldset>
+					<legend>More Language Information</legend>
+					<p>
+						<label for="select_script">Writing System:</label>&nbsp;
+
+						<input id="select_script" name="select_script" value="" type="text" list="scriptNames" placeholder="Start typing to select" />
+						<datalist id="scriptNames">
+							<option value="Arabic"></option>
+							<option value="Armenian"></option>
+							<option value="Balinese"></option>
+							<option value="Bamum"></option>
+							<option value="Bengali"></option>
+							<option value="Bopomofo"></option>
+							<option value="Braille_Patterns"></option>
+							<option value="Buginese"></option>
+							<option value="Buhid"></option>
+							<option value="Canadian_Aboriginal"></option>
+							<option value="Cham"></option>
+							<option value="Cherokee"></option>
+							<option value="Coptic"></option>
+							<option value="Cyrillic"></option>
+							<option value="Devanagari"></option>
+							<option value="Ethiopic"></option>
+							<option value="Georgian"></option>
+							<option value="Georgian"></option>
+							<option value="Glagolitic"></option>
+							<option value="Greek"></option>
+							<option value="Gujarati"></option>
+							<option value="Gurmukhi"></option>
+							<option value="Hangul"></option>
+							<option value="Hanunoo"></option>
+							<option value="Hebrew"></option>
+							<option value="Hiragana"></option>
+							<option value="Javanese"></option>
+							<option value="Kanbun"></option>
+							<option value="Kangxi_Radicals"></option>
+							<option value="Kannada"></option>
+							<option value="Katakana"></option>
+							<option value="Kayah_Li"></option>
+							<option value="Khmer"></option>
+							<option value="Lao"></option>
+							<option value="Latin"></option>
+							<option value="Lepcha"></option>
+							<option value="Limbu"></option>
+							<option value="Lisu"></option>
+							<option value="Malayalam"></option>
+							<option value="Meetei_Mayek"></option>
+							<option value="Mongolian"></option>
+							<option value="Myanmar"></option>
+							<option value="NKo"></option>
+							<option value="New_Tai_Lue"></option>
+							<option value="Ogham"></option>
+							<option value="Ol_Chiki"></option>
+							<option value="Oriya"></option>
+							<option value="Phags_pa"></option>
+							<option value="Rejang"></option>
+							<option value="Runic"></option>
+							<option value="Samaritan"></option>
+							<option value="Saurashtra"></option>
+							<option value="Sinhala"></option>
+							<option value="Sundanese"></option>
+							<option value="Syloti_Nagri"></option>
+							<option value="Syriac"></option>
+							<option value="Tagalog"></option>
+							<option value="Tagbanwa"></option>
+							<option value="Tai_Le"></option>
+							<option value="Tai_Tham"></option>
+							<option value="Tai_Viet"></option>
+							<option value="Tamil"></option>
+							<option value="Telugu"></option>
+							<option value="Thaana"></option>
+							<option value="Thai"></option>
+							<option value="Tibetan"></option>
+							<option value="Tifinagh"></option>
+							<option value="Vai"></option>
+							<option value="Vedic_Extensions"></option>
+							<option value="Yi_Radicals"></option>
+							<option value="Yi_Syllables"></option>
+						</datalist>
+					</p>
+					<p>
+						<label for="cssfont">Preferred Font:</label>&nbsp;
+
+						<input id="cssfont" name="cssfont" value="" onblur="updateMetaData('cssfonts'); applyFont();" type="text" />
+					</p>
+					<p>
+						<label for="cssfontfilename">Font File Name:</label>&nbsp;
+
+						<input id="cssfontfilename" name="cssfontfilename" value="" onblur="updateMetaData('cssfonts'); applyFont();" type="text" />
+					</p>
+					<p>
+						<label for="cssfontlist">CSS Font List:</label>&nbsp;
+
+						<input id="cssfontlist" name="cssfontlist" value="" onblur="updateMetaData('cssfonts'); applyFont();" type="text" />
+					</p>
+				</fieldset>
+			</div><!--end of langmetadata-manual-entry div-->
+			</div><!--end of langmetadata div-->
+
+
+			<div id="lang_data_subtabs">
+				<ul>
+					<li id="textsGroupTab" class="subtabs active" onclick="show_subTabs('textsGroup'); ">Step 2. Texts</li>
+					<li id="lettersGroupTab" class="subtabs" onclick="show_subTabs('lettersGroup'); ">Step 3. Letters</li>
+					<li id="wordsGroupTab" class="subtabs" onclick="show_subTabs('wordsGroup'); ">Step 4. Words</li>
+<!--
+					<li id="ipaGroupTab" class="subtabs" onclick="show_subTabs('ipaGroup');">Step 5. IPA</li>
+-->
+				</ul>
+			</div>
+
+			<div id="lang_data_sub">
+
+				<!--textGroup div-->
+				<div id="textsGroup" class="is-none">
+					<h2 id="h2_enterText" class="" style="text-align:center;">Import texts, word lists or a dictionary </h2>
+					<div id="allTextGroupsWordCount" style="text-align: center;"></div>
+					<h3 id="h3_TextGroup1" onclick="toggleClassById('text_group1','is-none');" class="" title="Click to toggle">Text Group 1 <span id="text_input1_wordcount" class="textWordCount"></span></h3>
+						<div id="text_group1" class="text_group is-none">
+							<input type="text" placeholder="Description of text group" class="textdescriptions" name="textdescriptions" onblur="updateMetaData('VocabularyGroups');" id="text1description" tabindex="3" />
+							<div>Import files:  <input type="file" id="fileSelector" name="files" multiple onchange="loadFiles(this.files,'1');" /> <span id="text1success"></span></div>
+							<div id="user_message1" name="user_message" class="user_message is-none"></div>
+							<div id="text_listing1" name="text_listing" class="text_listing"></div>
+						</div>
+					<h3 id="h3_TextGroup2" onclick="toggleClassById('text_group2','is-none');" class="" title="Click to toggle">Text Group 2 <span id="text_input2_wordcount" class="textWordCount"></span></h3>
+						<div id="text_group2" class="text_group is-none">
+							<input type="text" placeholder="Description of text group" class="textdescriptions" name="textdescriptions" onblur="updateMetaData('VocabularyGroups');" id="text2description" tabindex="5" />
+							<div>Import files:
+
+								<input type="file" id="" name="files" multiple onchange="loadFiles(this.files,'2');" />
+								<span id="text2success"></span>
+							</div>
+							<div id="user_message2" name="user_message" class="user_message is-none"></div>
+							<div id="text_listing2" name="text_listing" class="text_listing"></div>
+						</div>
+					<h3 id="h3_TextGroup3" onclick="toggleClassById('text_group3','is-none');" class="" title="Click to toggle">Text Group 3 <span id="text_input3_wordcount" class="textWordCount"></span></h3>
+						<div id="text_group3" class="text_group is-none">
+							<input type="text" placeholder="Description of text group" class="textdescriptions" name="textdescriptions" onblur="updateMetaData('VocabularyGroups');" id="text3description" tabindex="7" />
+							<div>Import files:  <input type="file" id="" name="files" multiple onchange="loadFiles(this.files,'3');" /> <span id="text3success"></span></div>
+							<div id="user_message3" name="user_message" class="user_message is-none"></div>
+							<div id="text_listing3" name="text_listing" class="text_listing"></div>
+						</div>
+					<h3 id="h3_TextGroup4" onclick="toggleClassById('text_group4','is-none');" class="" title="Click to toggle">Text Group 4 <span id="text_input4_wordcount" class="textWordCount"></span></h3>
+						<div id="text_group4" class="text_group is-none">
+							<input type="text" placeholder="Description of text group" class="textdescriptions" name="textdescriptions" onblur="updateMetaData('VocabularyGroups');" id="text4description" tabindex="9" />
+							<div>Import files:  <input type="file" id="" name="files" multiple onchange="loadFiles(this.files,'4');" /> <span id="text4success"></span></div>
+							<div id="user_message4" name="user_message" class="user_message is-none"></div>
+							<div id="text_listing4" name="text_listing" class="text_listing"></div>
+						</div>
+					<h3 id="h3_TextGroup5" onclick="toggleClassById('text_group5','is-none');" class="" title="Click to toggle">Text Group 5 <span id="text_input5_wordcount" class="textWordCount"></span></h3>
+						<div id="text_group5" class="text_group is-none">
+							<input type="text" placeholder="Description of text group" class="textdescriptions" name="textdescriptions" onblur="updateMetaData('VocabularyGroups');" id="text5description" tabindex="11" />
+							<div>Import files:  <input type="file" id="" name="files" multiple onchange="loadFiles(this.files,'5');" /> <span id="text5success"></span></div>
+							<div id="user_message5" name="user_message" class="user_message is-none"></div>
+							<div id="text_listing5" name="text_listing" class="text_listing"></div>
+						</div>
+					<h3 id="h3_TextGroup6" onclick="toggleClassById('text_group6','is-none');" class="" title="Click to toggle">Text Group 6<span id="text_input6_wordcount" class="textWordCount"></span></h3>
+						<div id="text_group6" class="text_group is-none">
+							<input type="text" placeholder="Description of text group" class="textdescriptions" name="textdescriptions" onblur="updateMetaData('VocabularyGroups');" id="text6description" tabindex="13" />
+							<div>Import files:  <input type="file" id="" name="files" multiple onchange="loadFiles(this.files,'6');" /> <span id="text6success"></span></div>
+							<div id="user_message6" name="user_message" class="user_message is-none"></div>
+							<div id="text_listing6" name="text_listing" class="text_listing"></div>
+						</div>
+				</div><!--end of textsGroup div-->
+
+				<!--lettersGroup div-->
+				<div id="lettersGroup" class="is-none">
+					<h2 id="h2_idletters" class="">Indentify the letters</h2>
+					<div class="buttons">
+						<button class="button" onclick="autoScriptDetector();">Auto detect the writing system</button>
+
+					</div>
+					<div id="alphabeticGraphemes" class="">
+						<table cellspacing="0" cellpadding="0">
+							<tbody>
+							<tr>
+								<td rowspan="1" colspan="2">
+									<div id="progress_report"></div>
+									<h3 id="h3_SingleGraphemes" class="">Single Graphemes </h3>
+								</td>
+							</tr>
+							<tr id="singlegraphs">
+								<td>
+									<label for="single_v" id="label_single_v" class="">Single Vowels</label> <br />
+									<textarea class="g1 fs vernacular chars" id="single_v" name="graphemes" data-fs="12" onblur="updateCharacters();" tabindex="30"></textarea><br />
+								</td>
+								<td>
+									<label for="single_c" id="label_single_c" class="">Single Consonants</label> <br />
+									<textarea class="g1 fs vernacular chars" id="single_c" name="graphemes" onblur="updateCharacters();" tabindex="31"></textarea><br />
+								</td>
+							</tr><!--end of singlegraphs tr-->
+							<tr>
+								<td rowspan="1" colspan="2"><h3 id="h3_MultiGraphemes" class="">Multigraphs </h3></td>
+							</tr>
+							<tr id="digraphs">
+								<td><label for="double_v" id="label_double_v" class="">Multigraph Vowels</label><br />
+									<textarea class="g2 fs vernacular gpcs" id="double_v" name="graphemes" onblur="populateMasterGPCList();" tabindex="32"></textarea>
+								</td>
+								<td><label for="double_c" id="label_double_c" class="">Multigraph Consonants</label><br />
+									<textarea class="g2 fs vernacular gpcs" id="double_c" name="graphemes" onblur="populateMasterGPCList();" tabindex="33"></textarea>
+								</td>
+							</tr><!--end of digraphs tr-->
+							</tbody>
+						</table>
+					</div><!--end of alphabeticGraphemes div-->
+
+					<div id="syllabaryGraphemes" class="is-none">
+						<table cellspacing="0" cellpadding="0">
+							<tbody>
+							<tr>
+								<td rowspan="1" colspan="2" style="width: 515px;">
+									<h3 id="h3_Syllabary" class="">Syllabary Graphemes </h3>
+									<textarea id="syllabary" class="g1 fs vernacular chars" name="graphemes" onblur="updateCharacters();"></textarea><br />
+									<!--<button class="confirm" value="Confirm Syllabary" onclick="checkSingle('s');">Confirm Syllabary</button><br />
+									<h3 id="h3_Other_Syllabary" class=""></h3>Other Graphemes</h3>
+									<textarea id="syllabary_other" class="fs vernacular" name=""></textarea><br />
+									-->
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div><!--end of syllabaryGraphemens div-->
+
+					<div id="otherGraphemes">
+						<h3 id="h3_OtherSymbols" class="">Other Symbols </h3>
+						<table cellspacing="0" cellpadding="0">
+							<tbody>
+							<tr id="othergraphs">
+								<td>
+									Other <strong>word building</strong> characters <br /><label for="other_wordbuilding_chars" id="label_otherWordBuildingChars">Eg. hyphen, apostrophe</label><br />
+									<textarea class="g3 fs vernacular chars" id="other_wordbuilding_chars" name="graphemes" onblur="updateCharacters();" tabindex="34"></textarea><br />
+
+									<label for="combining_chars" id="label_combiningChars" class="">Combining characters <!--<br /><small>Eg. tone marks, diacritics</small>--></label><br />
+									<textarea class="g3 fs vernacular chars" id="combining_chars" name="graphemes" onblur="updateCharacters();" tabindex="35"></textarea><br />
+									<div id="div_residue_graphemes" class="is-none">
+										Residue Graphemes: <span id="residue_grapheme_count"></span> <br />
+										<textarea class="g2 fs vernacular" id="residue_graphemes" name="residue_graphemes"></textarea>
+									</div>
+								<td>
+									<strong>Non word building</strong> characters <br />
+									<label for="si_punct" id="label_siPunct" class="">Sentence initial punctuation</label><br />
+									<textarea class="g3 fs vernacular chars" id="si_punct" name="punctuation" onblur="updateCharacters();" tabindex="36"></textarea><br />
+
+									<label for="sm_punct" id="label_smPunct" class="">Sentence medial punctuation</label><br />
+									<textarea class="g3 fs vernacular chars" id="sm_punct" name="punctuation" onblur="updateCharacters();" tabindex="37"></textarea><br />
+
+									<label for="sf_punct" id="label_sfPunct" class="">Sentence final punctuation</label><br />
+									<textarea class="g3 fs vernacular chars" id="sf_punct" name="punctuation" onblur="updateCharacters();" tabindex="38"></textarea><br />
+
+									<label for="numbers" id="label_numbers" class="">Numbers</label><br />
+									<textarea class="g3 fs vernacular chars" id="numbers" name="punctuation" onblur="updateCharacters();" tabindex="39"></textarea><br />
+
+									<label for="other_symbols" id="label_otherSymbols" class="">Other Symbols</label><br />
+									<textarea class="g3 fs vernacular chars" id="other_symbols" name="punctuation" onblur="updateCharacters();" tabindex="40"></textarea><br />
+
+									<!--<br /><button class="button" onclick="removePunctFromWordList();">Remove these from word lists</button>
+									-->
+								</td>
+							</tr><!--end of othergraphs tr-->
+							</tbody>
+						</table>
+					</div><!--end of otherGraphemes div-->
+				</div><!--end of lettersGroup div-->
+
+				<!--vocabGroup div-->
+				<div id="wordsGroup" class="is-none">
+					<h2 class="step">Create word lists from texts</h2>
+					<div class="buttons">
+						<button class="button" onclick="processTextGroups();">Create word lists from text groups</button>
+						<br />
+						<label for="lowerCaseAllWords" class="" style="">Convert all words to lowercase
+							<input id="lowerCaseAllWords" name="lowerCaseAllWords" class="" type="checkbox" />
+						</label>
+						<br />
+						<!--<label for="" class="">Ignore all uppercase words
+							<input id="ignoreAllUpperCase" name="ignoreAllUpperCase" class="" type="checkbox" />
+						</label>
+						-->
+					</div>
+					<h4 style="margin-top: 15px;">Word List Groups </h4>
+					<div class="buttons">
+						<button class="button" onclick="sortWordLists('numDesc');">Sort Lists by Frequency 9-0</button>
+
+						<button class="button" onclick="sortWordLists('alphAsc');" style="margin-left: 60px;">Sort Lists Alphabetically A-Z</button>
+						<br />
+					</div>
+					<div id="totalVocabCount" style="margin: 5px 0;"></div>
+					<div id="vg1">
+						<div id="" class="vg">
+							<h4 id="wordlist1description" name="wordlistdescriptions" class="wordlistdescriptions">Group 1</h4>
+							<div id="wordlist1count" class="wordlistcount"></div>
+							<textarea id="wordlist1" name="wordlists" class="vocabGroup fs vgroup vernacular"></textarea>
+						</div>
+						<div id="" class="vg">
+							<h4 id="wordlist2description" name="wordlistdescriptions" class="wordlistdescriptions">Group 2</h4>
+							<div id="wordlist2count" class="wordlistcount"></div>
+							<textarea id="wordlist2" name="wordlists" class="vocabGroup fs vgroup vernacular"></textarea>
+						</div>
+						<div id="" class="vg">
+							<h4 id="wordlist3description" name="wordlistdescriptions" class="wordlistdescriptions">Group 3</h4>
+							<div id="wordlist3count" class="wordlistcount"></div>
+							<textarea id="wordlist3" name="wordlists" class="vocabGroup fs vgroup vernacular"></textarea>
+						</div>
+					</div><!--end of vg1 div-->
+					<div id="vg2" style="display:block;">
+						<div id="" class="vg">
+							<h4 id="wordlist4description" name="wordlistdescriptions" class="wordlistdescriptions">Group 4</h4>
+							<div id="wordlist4count" class="wordlistcount"></div>
+							<textarea id="wordlist4" name="wordlists" class="vocabGroup fs vgroup vernacular"></textarea>
+						</div>
+						<div id="" class="vg">
+							<h4 id="wordlist5description" name="wordlistdescriptions" class="wordlistdescriptions">Group 5</h4>
+							<div id="wordlist5count" class="wordlistcount"></div>
+							<textarea id="wordlist5" name="wordlists" class="vocabGroup fs vgroup vernacular"></textarea>
+						</div>
+						<div id="" class="vg">
+							<h4 id="wordlist6description" name="wordlistdescriptions" class="wordlistdescriptions">Group 6</h4>
+							<div id="wordlist6count" class="wordlistcount"></div>
+							<textarea id="wordlist6" name="wordlists" class="vocabGroup fs vgroup vernacular"></textarea>
+						</div>
+						<div id="stopwordlist_div" class="">
+							<h4 id="stopwordlist_description" name="" class="wordlistdescriptions">Offensive Words (optional) </h4>
+							<div id="stopwords_control">
+								<span id="stopwords_load" class="" onclick="loadStopWords();" title="Click to load stored words"> &#x2386; </span>
+								<span id="stopwords_hide" class="" onclick="hideStopWords();" title="Click to hide words"> &otimes; </span>
+							</div>
+							<textarea id="stopwordlist" name="wordlists" class="vocabGroup fs vgroup vernacular" onblur="storeStopWords();"></textarea>
+						</div>
+					</div><!--end of vg2 div-->
+				</div><!--end of vocabGroup div-->
+
+				<!--ipaGroup section-->
+				<div id="ipaGroup" class="is-none">
+					<h2 class="step">Optional: Map phonemes to IPA </h2>
+					<table id="phonemes2ipaTable" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr>
+								<td>
+					<div id="ipa_buttons">
+						<button id="getPhonemes" onclick="getPhonemes();" style="margin-bottom: 5px;">Create phoneme list</button><br />
+						<button id="updateMasterIPAList" onclick="updateMasterIPAList();">Store mapped phonemes</button>
+					</div>
+								</td>
+								<td>
+									<div id="ipaLinks">
+										<label for="" onclick="show_ipaGroup('cons')">Consonants</label> | <label for="" onclick="show_ipaGroup('vow')">Vowels</label> | <label for="" onclick="show_ipaGroup('diacr')">Diacritics</label> | <label for="" onclick="show_ipaGroup('tone')">Tone</label> | <label for="" onclick="show_ipaGroup('affr')">Affricates</label> <br />
+										<label for="" onclick="show_ipaGroup('nonpcons')">Non-Pulmonic Consonants</label> | <label for="" onclick="show_ipaGroup('coartcons')">Co-articulated Consonants</label>
+									</div><!--end of ipaLinks div-->
+								</td>
+							</tr>
+							<tr>
+								<td id="phonemeInventory"></td>
+								<td id="ipaInventory">
+									<!--Tables of ipa characters -->
+									<table id="ipa_cons" class="ipaTable" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="tableHeader" colspan="13">Consonants</td>
+										</tr>
+										<tr>
+											<td class="" colspan="1">&nbsp;</td>
+											<td class="bt2 br2 bb1 bl2 superCol" colspan="2">Labial</td>
+											<td class="bt2 br2 bb1 superCol" colspan="4">Coronal</td>
+											<td class="bt2 br2 bb1 superCol" colspan="4">Dorsal</td>
+											<td class="bt2 br2 bb1 superCol" colspan="2">Radical</td>
+											<td class="bt2 br2 bb1 superCol" colspan="1">Glot</td>
+											<td class="superCol" colspan="1">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="">&nbsp;</td>
+											<td class="br1 bl2 colHeader"><div class="vert">Bilabial</div></td>
+											<td class="br2 colHeader"><div class="vert">Labiodental</div></td>
+											<td class="br1 colHeader"><div class="vert">Dental</div></td>
+											<td class="br1 colHeader"><div class="vert">Alveolar</div></td>
+											<td class="br1 colHeader"><div class="vert">Postalveolar</div></td>
+											<td class="br2 colHeader"><div class="vert">Retroflex</div></td>
+											<td class="br1 colHeader"><div class="vert">Alveolopalatal</div></td>
+											<td class="br1 colHeader"><div class="vert">Palatal</div></td>
+											<td class="br1 colHeader"><div class="vert">Velar</div></td>
+											<td class="br2 colHeader"><div class="vert">Uvular</div></td>
+											<td class="br2 colHeader"><div class="vert">Pharyngeal</div></td>
+											<td class="br2 colHeader"><div class="vert">Epiglottal</div></td>
+											<td class="br2 colHeader"><div class="vert">Glottal</div></td>
+											<td class="label">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="bt1 bb1 bl1 voice">vl</td>
+											<td class="bt1 bl2"><div class="ipa" name="consonant" title="Voiceless bilabial plosive" onclick="mapIPA('p','consonant',this.title);">p</div></td>
+											<td class="bt1 nd">&nbsp;</td>
+											<td class="bt1"><div class="ipa" name="consonant" title="Voiceless alveolar plosive" onclick="mapIPA('t̪','consonant',this.title);">t̪</div></td>
+											<td class="bt1"><div class="ipa" name="consonant" title="Voiceless alveolar plosive" onclick="mapIPA('t','consonant',this.title);">t</div></td>
+											<td class="bt1 nd">&nbsp;</td>
+											<td class="bt1"><div class="ipa" name="consonant" title="Voiceless retroflex plosive" onclick="mapIPA('ʈ','consonant',this.title);">ʈ</div></td>
+											<td class="bt1"><div class="ipa" name="consonant" title="Voiceless palatal plosive" onclick="mapIPA('c','consonant',this.title);">c</div></td>
+											<td class="bt1 nd">&nbsp;</td>
+											<td class="bt1"><div class="ipa" name="consonant" title="Voiceless velar plosive" onclick="mapIPA('k','consonant',this.title);">k</div></td>
+											<td class="bt1"><div class="ipa" name="consonant" title="Voiceless uvular plosive" onclick="mapIPA('q','consonant',this.title);">q</div></td>
+											<td class="bt1 nd">&nbsp;</td>
+											<td class="bt1"><div class="ipa" name="consonant" title="Epiglottal plosive" onclick="mapIPA('ʡ','consonant',this.title);">ʡ</div></td>
+											<td class="bt1 br2"><div class="ipa" name="consonant" title="Voiceless glottal plosive" onclick="mapIPA('ʔ','consonant',this.title);">ʔ</div></td>
+											<td class="bt1 br1 bb1 label" rowspan="2">Plosive</td>
+										</tr>
+										<tr>
+											<td class="bb1 bl1 voice">vd</td>
+											<td class="bl2 bdashed"><div class="ipa" name="consonant" title="Voiced bilabial plosive" onclick="mapIPA('b','consonant',this.title);">b</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar plosive" onclick="mapIPA('d̪','consonant',this.title);">d̪</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar plosive" onclick="mapIPA('d','consonant',this.title);">d</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced retroflex plosive" onclick="mapIPA('ɖ','consonant',this.title);">ɖ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced palatal plosive" onclick="mapIPA('ɟ','consonant',this.title);">ɟ</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced velar plosive" onclick="mapIPA('ɡ','consonant',this.title);">ɡ</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced uvular plosive" onclick="mapIPA('ɢ','consonant',this.title);">ɢ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd br2">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="bb1 bl1 voice">vl</td>
+											<td class="bl2"><div class="ipa" name="consonant" title="Voiceless bilabial fricative" onclick="mapIPA('ɸ','consonant',this.title);">ɸ</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless labiodental fricative" onclick="mapIPA('f','consonant',this.title);">f</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless dental fricative" onclick="mapIPA('θ','consonant',this.title);">θ</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless alveolar fricative" onclick="mapIPA('s','consonant',this.title);">s</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless postalveolar fricative" onclick="mapIPA('ʃ','consonant',this.title);">ʃ</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless retroflex fricative" onclick="mapIPA('ʂ','consonant',this.title);">ʂ</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless alveolo-palatal fricative" onclick="mapIPA('ɕ','consonant',this.title);">ɕ</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless palatal fricative" onclick="mapIPA('ç','consonant',this.title);">ç</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless velar fricative" onclick="mapIPA('x','consonant',this.title);">x</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless uvular fricative" onclick="mapIPA('χ','consonant',this.title);">χ</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless pharyngeal fricative" onclick="mapIPA('ħ','consonant',this.title);">ħ</div></td>
+											<td><div class="ipa" name="consonant" title="Voiceless epiglottal fricative" onclick="mapIPA('ʜ','consonant',this.title);">ʜ</div></td>
+											<td class="br2"><div class="ipa" name="consonant" title="Voiceless glottal fricative" onclick="mapIPA('h','consonant',this.title);">h</div></td>
+											<td class="br1 bb1 label" rowspan="2">Fricative<br />/Sibilant</td>
+										</tr>
+										<tr>
+											<td class="bb1 bl1 voice">vd</td>
+											<td class="bb1 bl2 bdashed"><div class="ipa" name="consonant" title="Voiced bilabial fricative" onclick="mapIPA('β','consonant',this.title);">β</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced labiodental fricative" onclick="mapIPA('v','consonant',this.title);">v</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced dental fricative" onclick="mapIPA('ð','consonant',this.title);">ð</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced alveolar fricative" onclick="mapIPA('z','consonant',this.title);">z</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced postalveolar fricative" onclick="mapIPA('ʒ','consonant',this.title);">ʒ</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced retroflex fricative" onclick="mapIPA('ʐ','consonant',this.title);">ʐ</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced alveolo-palatal fricative" onclick="mapIPA('ʑ','consonant',this.title);">ʑ</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced palatal fricative" onclick="mapIPA('ʝ','consonant',this.title);">ʝ</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced velar fricative" onclick="mapIPA('ɣ','consonant',this.title);">ɣ</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced uvular fricative" onclick="mapIPA('ʁ','consonant',this.title);">ʁ</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced pharyngeal fricative" onclick="mapIPA('ʕ','consonant',this.title);">ʕ</div></td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced epiglottal fricative" onclick="mapIPA('ʢ','consonant',this.title);">ʢ</div></td>
+											<td class="br2 bb1 bdashed"><div class="ipa" name="consonant" title="Voiced glottal fricative" onclick="mapIPA('ɦ','consonant',this.title);">ɦ</div></td>
+										</tr>
+										<tr>
+											<td class="bb1 bl1 voice">vl</td>
+											<td class="bl2 nd">&nbsp;</td>
+											<td class="nd">&nbsp;</td>
+											<td class="nd">&nbsp;</td>
+											<td><div class="ipa" name="consonant" title="Voiceless alveolar lateral fricative" onclick="mapIPA('ɬ','consonant',this.title);">ɬ</div></td>
+											<td class="nd">&nbsp;</td>
+											<td><div class="ipa" name="consonant" title="Voiced retroflex lateral approximant" onclick="mapIPA('ɭ˔̊','consonant',this.title);">ɭ˔̊</div></td>
+											<td class="nd">&nbsp;</td>
+											<td><div class="ipa" name="consonant" title="Voiced palatal lateral approximant" onclick="mapIPA('ʎ̥˔','consonant',this.title);">ʎ̥˔</div></td>
+											<td><div class="ipa" name="consonant" title="Voiced velar lateral approximant" onclick="mapIPA('ʟ̝̊','consonant',this.title);">ʟ̝̊</div></td>
+											<td class="nd">&nbsp;</td>
+											<td class="nd">&nbsp;</td>
+											<td class="nd">&nbsp;</td>
+											<td class="nd br2">&nbsp;</td>
+											<td class="br1 bb1 label" rowspan="2">Lateral<br />Fricative</td>
+										</tr>
+										<tr>
+											<td class="bb1 bl1 voice">vd</td>
+											<td class="bb1 bl2 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced alveolar lateral fricative" onclick="mapIPA('ɮ','consonant',this.title);">ɮ</div></td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed"><div class="ipa" name="consonant" title="Voiced velar lateral approximant" onclick="mapIPA('ʟ̝','consonant',this.title);">ʟ̝</div></td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="bb1 bdashed nd">&nbsp;</td>
+											<td class="br2 bb1 bdashed nd">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class=""></td>
+											<td class="bl2 bdashed"><div class="ipa" name="consonant" title="Voiced bilabial nasal" onclick="mapIPA('m','consonant',this.title);">m</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced labiodental nasal" onclick="mapIPA('ɱ','consonant',this.title);">ɱ</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar nasal" onclick="mapIPA('n̪','consonant',this.title);">n̪</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar nasal" onclick="mapIPA('n','consonant',this.title);">n</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced retroflex nasal" onclick="mapIPA('ɳ','consonant',this.title);">ɳ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced palatal nasal" onclick="mapIPA('ɲ','consonant',this.title);">ɲ</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced velar nasal" onclick="mapIPA('ŋ','consonant',this.title);">ŋ</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced uvular nasal" onclick="mapIPA('ɴ','consonant',this.title);">ɴ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="br2 bdashed nd">&nbsp;</td>
+											<td class="br1 bb1 label">Nasal</td>
+										</tr>
+										<tr>
+											<td class=""></td>
+											<td class="bl2 bdashed"><div class="ipa" name="consonant" title="Voiced bilabial trill" onclick="mapIPA('ʙ','consonant',this.title);">ʙ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar trill" onclick="mapIPA('r','consonant',this.title);">r</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced uvular trill" onclick="mapIPA('ʀ','consonant',this.title);">ʀ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="br2 bdashed nd">&nbsp;</td>
+											<td class="br1 bb1 label">Trill</td>
+										</tr>
+										<tr>
+											<td class=""></td>
+											<td class="bl2 bdashed"><div class="ipa" name="consonant" title="Bilabial flap" onclick="mapIPA('ⱱ̟','consonant',this.title);">ⱱ̟</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Labiodental flap" onclick="mapIPA('ⱱ','consonant',this.title);">ⱱ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar flap" onclick="mapIPA('ɾ','consonant',this.title);">ɾ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced retroflexed flap" onclick="mapIPA('ɽ','consonant',this.title);">ɽ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="br2 bdashed nd">&nbsp;</td>
+											<td class="br1 bb1 label">Flap</td>
+										</tr>
+										<tr>
+											<td class=""></td>
+											<td class="bl2 bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced labiodental approximant" onclick="mapIPA('ʋ','consonant',this.title);">ʋ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar approximant" onclick="mapIPA('ɹ','consonant',this.title);">ɹ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced retroflex approximant" onclick="mapIPA('ɻ','consonant',this.title);">ɻ</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced palatal lateral approximant" onclick="mapIPA('ʎ̟','consonant',this.title);">ʎ̟</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced palatal approximant" onclick="mapIPA('j','consonant',this.title);">j</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced velar approximant" onclick="mapIPA('ɰ','consonant',this.title);">ɰ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="br2 bdashed nd">&nbsp;</td>
+											<td class="br1 bb1 label">Approx.</td>
+										</tr>
+										<tr>
+											<td class=""></td>
+											<td class="bl2 bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar lateral approximant" onclick="mapIPA('l̪','consonant',this.title);">l̪</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced alveolar lateral approximant" onclick="mapIPA('l','consonant',this.title);">l</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced retroflex lateral approximant" onclick="mapIPA('ɭ','consonant',this.title);">ɭ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced palatal lateral approximant" onclick="mapIPA('ʎ','consonant',this.title);">ʎ</div></td>
+											<td class="bdashed"><div class="ipa" name="consonant" title="Voiced velar lateral approximant" onclick="mapIPA('ʟ','consonant',this.title);">ʟ</div></td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="bdashed nd">&nbsp;</td>
+											<td class="br2 bdashed nd">&nbsp;</td>
+											<td class="br1 bb1 label">Lateral<br />Approx.</td>
+										</tr>
+										<tr>
+											<td class=""></td>
+											<td class="bb2 bl2"><div class="ipa" name="consonant" title="Voiced bilabial implosive" onclick="mapIPA('ɓ','consonant',this.title);">ɓ</div></td>
+											<td class="bb2 nd">&nbsp;</td>
+											<td class="bb2 nd">&nbsp;</td>
+											<td class="bb2"><div class="ipa" name="consonant" title="Voiced dental/alevolar implosive" onclick="mapIPA('ɗ','consonant',this.title);">ɗ</div></td>
+											<td class="bb2 nd">&nbsp;</td>
+											<td class="bb2 nd">&nbsp;</td>
+											<td class="bb2 nd">&nbsp;</td>
+											<td class="bb2"><div class="ipa" name="consonant" title="Voiced palatal implosive" onclick="mapIPA('ʄ','consonant',this.title);">ʄ</div></td>
+											<td class="bb2"><div class="ipa" name="consonant" title="Voiced velar implosive" onclick="mapIPA('ɠ','consonant',this.title);">ɠ</div></td>
+											<td class="bb2"><div class="ipa" name="consonant" title="Voiced uvular implosive" onclick="mapIPA('ʛ','consonant',this.title);">ʛ</div></td>
+											<td class="bb2 nd">&nbsp;</td>
+											<td class="bb2 nd">&nbsp;</td>
+											<td class="br2 bb2 nd">&nbsp;</td>
+											<td class="br1 bb1 label">Implosive</td>
+										</tr>
+										<tr>
+											<td colspan="15">&nbsp;</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="superCol" colspan="14">Superscriptable Consonants</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="bt2 br2 bb2 bl2" colspan="14">
+												<!--
+												Apparently, these are not official IPA symbols
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵇ');">ᵇ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵈ');">ᵈ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵍ');">ᵍ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶢ');">ᶢ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵏ');">ᵏ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵝ');">ᵝ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶜ');">ᶜ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶝ');">ᶝ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶞ');">ᶞ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶠ');">ᶠ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶡ');">ᶡ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶣ');">ᶣ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶨ');">ᶨ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶩ');">ᶩ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶫ');">ᶫ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶬ');">ᶬ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶭ');">ᶭ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶯ');">ᶯ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶲ');">ᶲ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶰ');">ᶰ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵖ');">ᵖ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ʳ');">ʳ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ʴ');">ʴ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ʵ');">ʵ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ʶ');">ʶ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ˢ');">ˢ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵗ');">ᵗ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᵛ');">ᵛ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶳ');">ᶳ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶴ');">ᶴ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶹ');">ᶹ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶻ');">ᶻ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶼ');">ᶼ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶽ');">ᶽ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶾ');">ᶾ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ᶿ');">ᶿ</div>
+												<div class="ipa" name="consonant" title="" onclick="mapIPA('ˣ');">ˣ</div>
+												-->
+												<div class="ipa" name="consonant" title="Velarized" onclick="mapIPA('ˠ');">ˠ</div>
+												<div class="ipa" name="consonant" title="Aspirated" onclick="mapIPA('ʰ');">ʰ</div>
+												<div class="ipa" name="consonant" title="Breathy voice modification" onclick="mapIPA('ʱ');">ʱ</div>
+												<div class="ipa" name="consonant" title="Palatalized" onclick="mapIPA('ʲ');">ʲ</div>
+												<div class="ipa" name="consonant" title="Lateral release" onclick="mapIPA('ˡ');">ˡ</div>
+												<div class="ipa" name="consonant" title="Superscript m" onclick="mapIPA('ᵐ');">ᵐ</div>
+												<div class="ipa" name="consonant" title="Superscript inverted m" onclick="mapIPA('ᵚ');">ᵚ</div>
+												<div class="ipa" name="consonant" title="Nasal release" onclick="mapIPA('ⁿ');">ⁿ</div>
+												<div class="ipa" name="consonant" title="Superscript left-tail n (at left)" onclick="mapIPA('ᶮ');">ᶮ</div>
+												<div class="ipa" name="consonant" title="Superscript eng" onclick="mapIPA('ᵑ');">ᵑ</div>
+												<div class="ipa" name="consonant" title="Superscript inverted v" onclick="mapIPA('ᶺ');">ᶺ</div>
+												<div class="ipa" name="consonant" title="Labialized" onclick="mapIPA('ʷ');">ʷ</div>
+											</td>
+										</tr>
+									</tbody>
+									</table>
+
+									<table id="ipa_vow" class="ipaTable" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+											  <td>&nbsp;</td>
+											  <td class="tableHeader" colspan="5">Vowels</td>
+											</tr>
+											<tr>
+											  <td class="bb1">&nbsp;</td>
+											  <td class="bt2 br2 bb2 bl2 colHeader" title="Front vowel">Front</td>
+											  <td class="bt2 br2 bb2 colHeader" title="Near-front vowel">Near<br />front</td>
+											  <td class="bt2 br2 bb2 colHeader" title="Central vowel">Central</td>
+											  <td class="bt2 br2 bb2 colHeader" title="Near-back vowel">Near<br />back</td>
+											  <td class="bt2 br2 bb2 colHeader" title="Back vowel">Back</td>
+											</tr>
+											<tr>
+											  <td class="bb1 bl1 label">Close</td>
+											  <td class="bl2 bdashed"><span class="ipa" name="vowel" title="Close front unrounded vowel" onclick="mapIPA('i','vowel',this.title);">i</span>•<span class="ipa" name="vowel" title="Close front rounded vowel" onclick="mapIPA('y','vowel',this.title);">y</span></td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="bdashed"><span class="ipa" name="vowel" title="Close central unrounded vowel" onclick="mapIPA('ɨ','vowel',this.title);">ɨ</span>•<span class="ipa" name="vowel" title="Close central rounded vowel" onclick="mapIPA('ʉ','vowel',this.title);">ʉ</span></td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="br2 bdashed"><span class="ipa" name="vowel" title="Close back unrounded vowel" onclick="mapIPA('ɯ','vowel',this.title);">ɯ</span>•<span class="ipa" name="vowel" title="Rounded close back vowel" onclick="mapIPA('u','vowel',this.title);">u</span></td>
+											</tr>
+											<tr>
+												<td class="bb1 bl1 label" title="Near-close vowel">Near-close</td>
+												<td class="bl2 bdashed nd">&nbsp;</td>
+											  <td class="bdashed"><span class="ipa" name="vowel" title="Near-close front unrounded vowel" onclick="mapIPA('ɪ','vowel',this.title);">ɪ</span>•<span class="ipa" name="vowel" title="Near-close front rounded vowel" onclick="mapIPA('ʏ','vowel',this.title);">ʏ</span></td>
+											  <td class="bdashed"><span class="ipa" name="vowel" title="Near-close front unrounded vowel" onclick="mapIPA('ɪ̈','vowel',this.title);">ɪ̈</span>•<span class="ipa" name="vowel" title="Near-close back rounded vowel" onclick="mapIPA('ʊ̈','vowel',this.title);">ʊ̈</span></td>
+											  <td class="bdashed"><span class="ipa" name="vowel" title="Near-close back rounded vowel" onclick="mapIPA('ʊ','vowel',this.title);">ʊ</span></td>
+											  <td class="br2 bdashed nd">&nbsp;</td>
+											</tr>
+											<tr>
+												<td class="bb1 bl1 label" title="Close-mid vowel">Close-mid</td>
+											  <td class="bl2 bdashed"><span class="ipa" name="vowel" title="Close-mid front unrounded vowel" onclick="mapIPA('e','vowel',this.title);">e</span>•<span class="ipa" name="vowel" title="Close-mid front rounded vowel" onclick="mapIPA('ø','vowel',this.title);">ø</span></td>
+											  <td class="bdashed nd">&nbsp;</td>
+											  <td class="bdashed"><span class="ipa" name="vowel" title="Close-mid unrounded vowel" onclick="mapIPA('ɘ','vowel',this.title);">ɘ</span>•<span class="ipa" name="vowel" title="Close-mid central rounded vowel" onclick="mapIPA('ɵ','vowel',this.title);">ɵ</span></td>
+											  <td class="bdashed nd">&nbsp;</td>
+											  <td class="br2 bdashed"><span class="ipa" name="vowel" title="Close-mid back unrounded vowel" onclick="mapIPA('ɤ','vowel',this.title);">ɤ</span>•<span class="ipa" name="vowel" title="Close-mid back rounded vowel" onclick="mapIPA('o','vowel',this.title);">o</span></td>
+											</tr>
+											<tr>
+												<td class="bb1 bl1 label" title="Mid vowel"><b>Mid</b></td>
+											  <td class="bl2 bdashed"><span class="ipa" name="vowel" title="Close-mid front unrounded vowel" onclick="mapIPA('e̞','vowel',this.title);">e̞</span>•<span class="ipa" name="vowel" title="Close-mid front rounded vowel" onclick="mapIPA('ø̞','vowel',this.title);">ø̞</span></td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="bdashed"><span class="ipa" name="vowel" title="Mid central unrounded vowel" onclick="mapIPA('ə','vowel',this.title);">ə</span></td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="br2 bdashed"><span class="ipa" name="vowel" title="Close-mid back unrounded vowel" onclick="mapIPA('ɤ̞','vowel',this.title);">ɤ̞</span>•<span class="ipa" name="vowel" title="Close-mid back rounded vowel" onclick="mapIPA('o̞','vowel',this.title);">o̞</span></td>
+											</tr>
+											<tr>
+												<td class="bb1 bl1 label" title="Open-mid vowel">Open-mid</td>
+											  <td class="bl2 bdashed"><span class="ipa" name="vowel" title="Open-mid front unrounded vowel" onclick="mapIPA('ɛ','vowel',this.title);">ɛ</span>•<span class="ipa" name="vowel" title="Open-mid front rounded vowel" onclick="mapIPA('œ','vowel',this.title);">œ</span></td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="bdashed"><span class="ipa" name="vowel" title="Open-mid central unrounded vowel" onclick="mapIPA('ɜ','vowel',this.title);">ɜ</span>•<span class="ipa" name="vowel" title="Open-mid central rounded vowel" onclick="mapIPA('ɞ','vowel',this.title);">ɞ</span></td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="br2 bdashed"><span class="ipa" name="vowel" title="Open-mid back unrounded vowel" onclick="mapIPA('ʌ','vowel',this.title);">ʌ</span>•<span class="ipa" name="vowel" title="Open-mid back rounded vowel" onclick="mapIPA('ɔ','vowel',this.title);">ɔ</span></td>
+											</tr>
+											<tr>
+												<td class="bb1 bl1 label" title="Near-open vowel">Near-open</td>
+											  <td class="bl2 bdashed"><span class="ipa" name="vowel" title="Near-open front unrounded vowel" onclick="mapIPA('æ','vowel',this.title);">æ</span></td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="nd bdashed">&nbsp;</td>
+											  <td class="br2 bdashed"><span class="ipa" name="vowel" title="Near-open central unrounded vowel" onclick="mapIPA('ɐ','vowel',this.title);">ɐ</span></td>
+											</tr>
+											<tr>
+												<td class="bb1 bl1 label" title="Open vowel"><b>Open</b></td>
+											  <td class="bb2 bl2"><span class="ipa" name="vowel" title="Open front unrounded vowel" onclick="mapIPA('a','vowel',this.title);">a</span>•<span class="ipa" name="vowel" title="Open front rounded vowel" onclick="mapIPA('ɶ','vowel',this.title);">ɶ</span></td>
+											  <td class="bb2 nd">&nbsp;</td>
+											  <td class="bb2"><span class="ipa" name="vowel" title="Open central unrounded vowel" onclick="mapIPA('ä','vowel',this.title);">ä</span></td>
+											  <td class="bb2 nd">&nbsp;</td>
+											  <td class="bb2 br2"><span class="ipa" name="vowel" title="Open back unrounded vowel" onclick="mapIPA('ɑ','vowel',this.title);">ɑ</span>•<span class="ipa" name="vowel" title="Open back rounded vowel" onclick="mapIPA('ɒ','vowel',this.title);">ɒ</span></td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td class="colHeader" colspan="5">Paired vowels are: unrounded • rounded</td>
+											</tr>
+											<tr>
+												<td colspan="6">&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td class="colHeader" colspan="5">Superscriptable Vowels</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td class="bt2 br2 bb2 bl2" colspan="5">
+														<div class="ipa" name="vowel" title="Superscript a" onclick="mapIPA('ᵃ');">ᵃ</div>
+														<div class="ipa" name="vowel" title="Superscript inverted a" onclick="mapIPA('ᵄ');">ᵄ</div>
+														<div class="ipa" name="vowel" title="Superscript rounded a" onclick="mapIPA('ᵅ');">ᵅ</div>
+														<div class="ipa" name="vowel" title="Superscript inverted rounded a" onclick="mapIPA('ᶛ');">ᶛ</div>
+														<div class="ipa" name="vowel" title="Superscript ae" onclick="mapIPA('ᵆ');">ᵆ</div>
+														<div class="ipa" name="vowel" title="Superscript e" onclick="mapIPA('ᵉ');">ᵉ</div>
+														<div class="ipa" name="vowel" title="Superscript inverted e" onclick="mapIPA('ᵊ');">ᵊ</div>
+														<div class="ipa" name="vowel" title="Superscript epsilon" onclick="mapIPA('ᵋ');">ᵋ</div>
+														<div class="ipa" name="vowel" title="Superscript backwards epsilon" onclick="mapIPA('ᶟ');">ᶟ</div>
+														<div class="ipa" name="vowel" title="Superscript i" onclick="mapIPA('ⁱ');">ⁱ</div>
+														<div class="ipa" name="vowel" title="Superscript barred i" onclick="mapIPA('ᶤ');">ᶤ</div>
+														<div class="ipa" name="vowel" title="Superscript small capital i" onclick="mapIPA('ᶦ');">ᶦ</div>
+														<div class="ipa" name="vowel" title="Superscript o" onclick="mapIPA('ᵒ');">ᵒ</div>
+														<div class="ipa" name="vowel" title="Superscript barred o" onclick="mapIPA('ᶱ');">ᶱ</div>
+														<div class="ipa" name="vowel" title="Superscript open o" onclick="mapIPA('ᵓ');">ᵓ</div>
+														<div class="ipa" name="vowel" title="Superscript u" onclick="mapIPA('ᵘ');">ᵘ</div>
+														<div class="ipa" name="vowel" title="Superscript barred u" onclick="mapIPA('ᶶ');">ᶶ</div>
+														<div class="ipa" name="vowel" title="Palatalized (Americanist)" onclick="mapIPA('ʸ');">ʸ</div>
+														<div class="ipa" name="vowel" title="Superscript upsilon" onclick="mapIPA('ᶷ');">ᶷ</div>
+													</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<table id="ipa_diacr" class="ipaTable" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td class="tableHeader" colspan="6">Diacritics</td>
+											</tr>
+											<tr>
+												<td class="bt2 bl2 label">Aspirated</td>
+												<td class="bt2"><div class="ipa" title="Aspirated" onclick="mapIPA('ʰ',this.title);">ʰ</div></td>
+												<td class="bt2 bl1 label">Breathy</td>
+												<td class="bt2"><div class="ipa" title="Breathy voiced" onclick="mapIPA('̤',this.title);">◌̤</div></td>
+												<td class="bt2 bl1 label">Labialised</td>
+												<td class="bt2 br2"><div class="ipa" title="Labialized" onclick="mapIPA('ʷ',this.title);">ʷ</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Dental</td>
+												<td class="bt1"><div class="ipa" title="Dental" onclick="mapIPA('̪',this.title);">◌̪</div></td>
+												<td class="bt1 bl1 label">Palatalised</td>
+												<td class="bt1"><div class="ipa" title="Palatalized" onclick="mapIPA('ʲ',this.title);">ʲ</div></td>
+												<td class="bt1 bl1 label">Apical</td>
+												<td class="bt1 br2"><div class="ipa" title="Apical" onclick="mapIPA('̺',this.title);">◌̺</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Velarised</td>
+												<td class="bt1"><div class="ipa" title="Velarized" onclick="mapIPA('ˠ',this.title);">ˠ</div></td>
+												<td class="bt1 bl1 label">Laminal</td>
+												<td class="bt1"><div class="ipa" title="Laminal" onclick="mapIPA('̻',this.title);">◌̻</div></td>
+												<td class="bt1 bl1 label">Pharyngealised</td>
+												<td class="bt1 br2"><div class="ipa" title="Pharyngealized" onclick="mapIPA('ˤ',this.title);">ˤ</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Linguo-labial</td>
+												<td class="bt1"><div class="ipa" title="Linguolabial" onclick="mapIPA('̼',this.title);">◌̼</div></td>
+												<td class="bt1 bl1 label">Nasalised</td>
+												<td class="bt1"><div class="ipa" title="Nasalized" onclick="mapIPA('̃',this.title);">◌̃</div></td>
+												<td class="bt1 bl1 label">Double artic./<br />affricate</td>
+												<td class="bt1 br2"><div class="ipa" title="Double articulation" onclick="mapIPA('͡',this.title);">◌͡◌</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Pre/post <br />nasalised</td>
+												<td class="bt1"><div class="ipa" title="Nasal release" onclick="mapIPA('ⁿ',this.title);">ⁿ</div></td>
+												<td class="bt1 bl1 label">Lateral release</td>
+												<td class="bt1"><div class="ipa" title="Lateral release" onclick="mapIPA('ˡ',this.title);">ˡ</div></td>
+												<td class="bt1 bl1 label">Centralised</td>
+												<td class="bt1 br2"><div class="ipa" title="Centralized" onclick="mapIPA('̈',this.title);">◌̈</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Mid centralised</td>
+												<td class="bt1"><div class="ipa" title="Mid-centralized" onclick="mapIPA('̽',this.title);">◌̽</div></td>
+												<td class="bt1 bl1 label">Velar/<br />Pharyngealised</td>
+												<td class="bt1"><div class="ipa" title="Velarized voiced alveolar lateral approximant" onclick="mapIPA('ɫ',this.title);">ɫ</div></td>
+												<td class="bt1 bl1 label">Advanced</td>
+												<td class="bt1 br2"><div class="ipa" title="Advanced" onclick="mapIPA('̟',this.title);">◌̟</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Rhoticity</td>
+												<td class="bt1"><div class="ipa" title="Rhoticity" onclick="mapIPA('˞',this.title);">◌˞</div></td>
+												<td class="bt1 bl1 label">Retracted</td>
+												<td class="bt1"><div class="ipa" title="Retracted" onclick="mapIPA('̠',this.title);">◌̠</div></td>
+												<td class="bt1 bl1 label">Ejective</td>
+												<td class="bt1 br2"><div class="ipa" title="Ejective" onclick="mapIPA('ʼ',this.title);">◌ʼ</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Raised</td>
+												<td class="bt1"><div class="ipa" title="Raised" onclick="mapIPA('̝',this.title);">◌̝</div></td>
+												<td class="bt1 bl1 label">Unreleased</td>
+												<td class="bt1"><div class="ipa" title="No audible release" onclick="mapIPA('̚',this.title);">◌̚</div></td>
+												<td class="bt1 bl1 label">Lowered</td>
+												<td class="bt1 br2"><div class="ipa" title="Lowered" onclick="mapIPA('̞',this.title);">◌̞</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Syllabic</td>
+												<td class="bt1"><div class="ipa" title="Syllabic" onclick="mapIPA('̩',this.title);">◌̩</div></td>
+												<td class="bt1 bl1 label">+ATR</td>
+												<td class="bt1"><div class="ipa" title="Advanced tongue root" onclick="mapIPA('̘',this.title);">◌̘</div></td>
+												<td class="bt1 bl1 label">-ATR</td>
+												<td class="bt1 br2"><div class="ipa" title="Retracted tongue root" onclick="mapIPA('̙',this.title);">◌̙</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Non-syllabic</td>
+												<td class="bt1"><div class="ipa" title="Non-syllabic" onclick="mapIPA('̯',this.title);">◌̯</div></td>
+												<td class="bt1 bl1 label">Creaky</td>
+												<td class="bt1"><div class="ipa" title="Creaky voiced" onclick="mapIPA('̰',this.title);">◌̰</div></td>
+												<td class="bt1 bl1 label">More rounded</td>
+												<td class="bt1 br2"><div class="ipa" title="More rounded" onclick="mapIPA('̹',this.title);">◌̹</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Voiceless</td>
+												<td class="bt1"><div class="ipa" title="Voiceless" onclick="mapIPA('̥',this.title);">◌̥</div></td>
+												<td class="bt1 bl1 label">Voiced</td>
+												<td class="bt1"><div class="ipa" title="Voiced" onclick="mapIPA('̬',this.title);">◌̬</div></td>
+												<td class="bt1 bl1 label">Less rounded</td>
+												<td class="bt1 br2"><div class="ipa" title="Less rounded" onclick="mapIPA('̜',this.title);">◌̜</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 label">Long</td>
+												<td class="bt1"><div class="ipa" title="Long" onclick="mapIPA('ː',this.title);">◌ː</div></td>
+												<td class="bt1 bl1 label">Half Long</td>
+												<td class="bt1"><div class="ipa" title="Half Long" onclick="mapIPA('ˑ',this.title);">◌ˑ</div></td>
+												<td class="bt1 bl1 label">Extra Long</td>
+												<td class="bt1 br2"><div class="ipa" title="Extra Long" onclick="mapIPA('ːː',this.title);">ːː</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bb2 bl2 label">Extra Short</td>
+												<td class="bt1 bb2"><div class="ipa" title="Extra Short" onclick="mapIPA('̆',this.title);">◌̆</div></td>
+												<td class="bt1 bb2 l1 r2" colspan="4">&nbsp;</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<table id="ipa_tone" class="ipaTable" cellpadding="0" cellspacing="0">
+										<tbody>
+										<tr>
+											<td class="tableHeader" colspan="4">Tone</td>
+										</tr>
+										<tr>
+											<td class="colHeader" colspan="2" rowspan="1">Diacritic tone marks</td>
+											<td class="colHeader" colspan="2" rowspan="1">Tone Letters</td>
+										</tr>
+										<tr>
+											<td class="bt2 bl2 label">Extra high tone</td>
+											<td class="bt2"><div class="ipa" title="Tone extra high" onclick="mapIPA('̋',this.title);">◌̋</div></td>
+											<td class="bt2 bl1 label">Extra low tone</td>
+											<td class="bt2 br2"><div class="ipa" title="Tone extra low" onclick="mapIPA('˩',this.title);">˩</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2 label">High tone</td>
+											<td class="bt1"><div class="ipa" title="High tone" onclick="mapIPA('́',this.title);">◌́</div></td>
+											<td class="bt1 bl1 label">Low tone</td>
+											<td class="bt1 br2"><div class="ipa" title="Low tone" onclick="mapIPA('˨',this.title);">˨</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2 label">Mid tone</td>
+											<td class="bt1"><div class="ipa" title="Mid tone" onclick="mapIPA('̄',this.title);">◌̄</div></td>
+											<td class="bt1 bl1 label">Mid tone</td>
+											<td class="bt1 br2"><div class="ipa" title="Mid tone" onclick="mapIPA('˧',this.title);">˧</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2 label">Low tone</td>
+											<td class="bt1"><div class="ipa" title="Low tone" onclick="mapIPA('̀',this.title);">◌̀</div></td>
+											<td class="bt1 bl1 label">High tone</td>
+											<td class="bt1 br2"><div class="ipa" title="High tone" onclick="mapIPA('˦',this.title);">˦</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2 label">Extra low tone</td>
+											<td class="bt1"><div class="ipa" title="Tone extra low" onclick="mapIPA('̏',this.title);">◌̏</div></td>
+											<td class="bt1 bl1 label">Extra high tone</td>
+											<td class="bt1 br2"><div class="ipa" title="Tone extra high" onclick="mapIPA('˥',this.title);">˥</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2 label">Falling tone</td>
+											<td class="bt1"><div class="ipa" title="Tone falling" onclick="mapIPA('̂',this.title);">◌̂</div></td>
+											<td class="bt1 bl1 label">Rising tone</td>
+											<td class="bt1 br2"><div class="ipa" title="Rising tone" onclick="mapIPA('˩˥',this.title);">˩˥</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2 label">Rising tone</td>
+											<td class="bt1"><div class="ipa" title="Tone rising" onclick="mapIPA('̌',this.title);">◌̌</div></td>
+											<td class="bt1 bl1 label">Falling tone</td>
+											<td class="bt1 br2"><div class="ipa" title="Falling tone" onclick="mapIPA('˥˩',this.title);">˥˩</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2">&nbsp;</td>
+											<td class="bt1">&nbsp;</td>
+											<td class="bt1 bl1 label">Low rising tone</td>
+											<td class="bt1 br2"><div class="ipa" title="Low rising tone" onclick="mapIPA('˩˧',this.title);">˩˧</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2 colHeader" colspan="2">Superscripts</td>
+											<td class="bt1 bl1 label">Low falling tone</td>
+											<td class="bt1 br2"><div class="ipa" title="Low falling tone" onclick="mapIPA('˧˩',this.title);">˧˩</div></td>
+										</tr>
+										<tr>
+											<td class="bb2 bl2" colspan="2" rowspan="2">
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁰',this.title);">⁰</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('¹',this.title);">¹</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('²',this.title);">²</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('³',this.title);">³</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁴',this.title);">⁴</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁵',this.title);">⁵</div><br />
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁶',this.title);">⁶</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁷',this.title);">⁷</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁸',this.title);">⁸</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁹',this.title);">⁹</div>
+												<div class="ipa" title="Custom use tone" onclick="mapIPA('⁻',this.title);">⁻</div>
+											</td>
+											<td class="bt1 bl1 label">High falling tone</td>
+											<td class="bt1 br2"><div class="ipa" title="High falling tone" onclick="mapIPA('˥˧',this.title);">˥˧</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bb2 bl1 label">High rising tone</td>
+											<td class="bt1 bb2 br2"><div class="ipa" title="High rising tone" onclick="mapIPA('˧˥',this.title);">˧˥</div></td>
+										</tr>
+										</tbody>
+									</table>
+
+									<table id="ipa_affr" class="ipaTable" cellpadding="0" cellspacing="0">
+										<tbody>
+										<tr>
+											<td class="tableHeader" colspan="10">Affricates</td>
+										</tr>
+										<tr>
+											<td class="bt2 bl2"><div class="ipa" name="affricate" title="Voiceless labiodental affricate" onclick="mapIPA('p̪f','affricate',this.title);">p̪f</div></td>
+											<td class="bt2 bl1"><div class="ipa" name="affricate" title="Voiceless alveolar affricate" onclick="mapIPA('ts','affricate',this.title);">ts</div></td>
+											<td class="bt2 bl1"><div class="ipa" name="affricate" title="Voiceless palato-alveolar affricate" onclick="mapIPA('tʃ','affricate',this.title);">tʃ</div></td>
+											<td class="bt2 bl1"><div class="ipa" name="affricate" title="Voiceless alveolo-palatal affricate" onclick="mapIPA('tɕ','affricate',this.title);">tɕ</div></td>
+											<td class="bt2 bl1"><div class="ipa" name="affricate" title="Voiceless retroflex affricate" onclick="mapIPA('ʈʂ','affricate',this.title);">ʈʂ</div></td>
+											<td class="bt2 bl1">&nbsp;</td>
+											<td class="bt2 br2">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2"><div class="ipa" name="affricate" title="Voiced labiodental affricate" onclick="mapIPA('b̪v','affricate',this.title);">b̪v</div></td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiced alveolar affricate" onclick="mapIPA('dz','affricate',this.title);">dz</div></td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiced palato-alveolar affricate" onclick="mapIPA('dʒ','affricate',this.title);">dʒ</div></td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiced alveolo-palatal affricate" onclick="mapIPA('dʑ','affricate',this.title);">dʑ</div></td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiced retroflex affricate" onclick="mapIPA('ɖʐ','affricate',this.title);">ɖʐ</div></td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 br2">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2">&nbsp;</td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiceless alveolar lateral affricate" onclick="mapIPA('tɬ','affricate',this.title);">tɬ</div></td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiceless palatal lateral affricate" onclick="mapIPA('cʎ̥˔','affricate',this.title);">cʎ̥˔</div></td>
+											<td class="bt1 br2 l1"><div class="ipa" name="affricate" title="Voiceless velar lateral affricate" onclick="mapIPA('kʟ̝̊','affricate',this.title);">kʟ̝̊</div></td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2">&nbsp;</td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiced alveolar lateral affricate" onclick="mapIPA('dɮ','affricate',this.title);">dɮ</div></td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 br2">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="bt1 bl2">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1">&nbsp;</td>
+											<td class="bt1 bl1"><div class="ipa" name="affricate" title="Voiceless palatal affricate" onclick="mapIPA('cç','affricate',this.title);">cç</div></td>
+											<td class="bt1 br2">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="bt1 bb2 bl2">&nbsp;</td>
+											<td class="bt1 bb2 bl1">&nbsp;</td>
+											<td class="bt1 bb2 bl1">&nbsp;</td>
+											<td class="bt1 bb2 bl1">&nbsp;</td>
+											<td class="bt1 bb2 bl1">&nbsp;</td>
+											<td class="bt1 bb2 bl1"><div class="ipa" name="affricate" title="Voiced palatal affricate" onclick="mapIPA('ɟʝ','affricate',this.title);">ɟʝ</div></td>
+											<td class="bt1 bb2 br2">&nbsp;</td>
+										</tr>
+										</tbody>
+									</table>
+
+									<table id="ipa_nonpcons" class="ipaTable" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td class="tableHeader" colspan="8">Non-pulmonic consonants</td>
+											</tr>
+											<tr>
+												<td class="bt2 bl2 colHeader" rowspan="2">Clicks</td>
+												<td class="bt2 bl1"><div class="ipa" name="consonant" title="Bilabial click" onclick="mapIPA('ʘ','consonant',this.title);">ʘ</div></td>
+												<td class="bt2 bl1"><div class="ipa" name="consonant" title="Dental click" onclick="mapIPA('ǀ','consonant',this.title);">ǀ</div></td>
+												<td class="bt2 bl1" colspan="2"><div class="ipa" name="consonant" title="(post)alveolar click" onclick="mapIPA('ǃ','consonant',this.title);">ǃ</div></td>
+												<td class="bt2 bl1" colspan="2"><div class="ipa" name="consonant" title="Palatoalveolar click" onclick="mapIPA('ǂ','consonant',this.title);">ǂ</div></td>
+												<td class="bt2 br2 bl1"><div class="ipa" name="consonant" title="Alveolar lateral click" onclick="mapIPA('ǁ','consonant',this.title);">ǁ</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Bilabial click" onclick="mapIPA('ʘ̃','consonant',this.title);">ʘ̃</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Glottalized  click" onclick="mapIPA('ʘ̃ˀ','consonant',this.title);">ʘ̃ˀ</div></td>
+												<td class="bt1 bl1" colspan="2"><div class="ipa" name="consonant" title="Pulmonic-contour click" onclick="mapIPA('ʘ͡q','consonant',this.title);">ʘ͡q</div></td>
+												<td class="bt1 bl1" colspan="2"><div class="ipa" name="consonant" title="Ejective-contour click" onclick="mapIPA('ʘ͡qʼ','consonant',this.title);">ʘ͡qʼ</div></td>
+												<td class="bt1 br2 bl1"><div class="ipa" name="consonant" title="Retroflex click" onclick="mapIPA('‼','consonant',this.title);">‼</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl2 colHeader">Implosives</td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiced bilabial implosive" onclick="mapIPA('ɓ','consonant',this.title);">ɓ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiced dental/alevolar implosive" onclick="mapIPA('ɗ','consonant',this.title);">ɗ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiced palatal implosive" onclick="mapIPA('ʄ','consonant',this.title);">ʄ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiced retroflex implosive" onclick="mapIPA('ᶑ','consonant',this.title);">ᶑ</div></td>
+												<td class="bt1 bl1 " colspan="2"><div class="ipa" name="consonant" title="Voiced velar implosive" onclick="mapIPA('ɠ','consonant',this.title);">ɠ</div></td>
+												<td class="bt1 br2 bl1"><div class="ipa" name="consonant" title="Voiced uvular implosive" onclick="mapIPA('ʛ','consonant',this.title);">ʛ</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bb2 bl2 colHeader" rowspan="3">Ejectives</td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless bilabial ejective" onclick="mapIPA('pʼ','consonant',this.title);">pʼ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless alveolar ejective" onclick="mapIPA('tʼ','consonant',this.title);">tʼ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless palatal ejective" onclick="mapIPA('cʼ','consonant',this.title);">cʼ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless retroflex ejective" onclick="mapIPA('ʈʼ','consonant',this.title);">ʈʼ</div></td>
+												<td class="bt1 bl1" colspan="2"><div class="ipa" name="consonant" title="Voiceless velar ejective" onclick="mapIPA('kʼ','consonant',this.title);">kʼ</div></td>
+												<td class="bt1 br2 bl1"><div class="ipa" name="consonant" title="Voiceless uvular ejective" onclick="mapIPA('qʼ','consonant',this.title);">qʼ</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless labiodental ejective fricative" onclick="mapIPA('fʼ','consonant',this.title);">fʼ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless dental ejective fricative" onclick="mapIPA('θʼ','consonant',this.title);">θʼ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless alveolar ejective fricative" onclick="mapIPA('sʼ','consonant',this.title);">sʼ</div></td>
+												<td class="bt1 bl1"><div class="ipa" name="consonant" title="Voiceless alveolar lateral ejective fricative" onclick="mapIPA('ɬʼ','consonant',this.title);">ɬʼ</div></td>
+												<td class="bt1 bl1" colspan="2"><div class="ipa" name="consonant" title="Voiceless velar ejective fricative" onclick="mapIPA('xʼ','consonant',this.title);">xʼ</div></td>
+												<td class="bt1 br2 bl1"><div class="ipa" name="consonant" title="Voiceless uvular ejective fricative" onclick="mapIPA('χʼ','consonant',this.title);">χʼ</div></td>
+											</tr>
+											<tr>
+												<td class="bt1 bb2 bl1"><div class="ipa" name="consonant" title="Voiceless alveolar ejective affricate" onclick="mapIPA('tsʼ','consonant',this.title);">tsʼ</div></td>
+												<td class="bt1 bb2 bl1"><div class="ipa" name="consonant" title="Voiceless alveolar lateral ejective affricate" onclick="mapIPA('tɬʼ','consonant',this.title);">tɬʼ</div></td>
+												<td class="bt1 bb2 bl1"><div class="ipa" name="consonant" title="Voiceless palatal lateral ejective affricate" onclick="mapIPA('cʎ̝̥ʼ','consonant',this.title);">cʎ̝̥ʼ</div></td>
+												<td class="bt1 bb2 bl1"><div class="ipa" name="consonant" title="Voiceless palato-alveolar ejective affricate" onclick="mapIPA('tʃʼ','consonant',this.title);">tʃʼ</div></td>
+												<td class="bt1 bb2 bl1"><div class="ipa" name="consonant" title="Voiceless retroflex ejective affricate" onclick="mapIPA('ʈʂʼ','consonant',this.title);">ʈʂʼ</div></td>
+												<td class="bt1 bb2 bl1"><div class="ipa" name="consonant" title="Voiceless velar ejective affricate" onclick="mapIPA('kxʼ','consonant',this.title);">kxʼ</div></td>
+												<td class="bt1 bb2 br2 bl1"><div class="ipa" name="consonant" title="Voiceless velar lateral ejective affricate" onclick="mapIPA('kʟ̝̊ʼ','consonant',this.title);">kʟ̝̊ʼ</div></td>
+											</tr>
+										</tbody>
+									</table>
+
+									<table id="ipa_coartcons" class="ipaTable" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td class="tableHeader" colspan="5">Co-articulated consonants</td>
+											</tr>
+											<tr>
+												<td class="colHeader bt1 br1 bb1 bl1">Continuants</td>
+												<td class="bt1 bb1"><div class="ipa" name="consonant" title="Voiceless labial-velar approximant" onclick="mapIPA('ʍ','consonant',this.title);">ʍ</div></td>
+												<td class="bt1 bb1"><div class="ipa" name="consonant" title="Voiced labial-velar approximant" onclick="mapIPA('w','consonant',this.title);">w</div></td>
+												<td class="bt1 bb1"><div class="ipa" name="consonant" title="Voiced labial palatal approximant" onclick="mapIPA('ɥ','consonant',this.title);">ɥ</div></td>
+												<td class="bt1 bb1 br1"><div class="ipa" name="consonant" title="Voiceless co-articulated velar and palato-alveolar fricative" onclick="mapIPA('ɧ','consonant',this.title);">ɧ</div></td>
+											</tr>
+											<tr>
+												<td class="colHeader br1 bb1 bl1">Occlusives</td>
+												<td class="bb1"><div class="ipa" name="consonant" title="Voiceless labial-velar plosive" onclick="mapIPA('k͡p','consonant',this.title);">k͡p</div></td>
+												<td class="bb1"><div class="ipa" name="consonant" title="Voiced labial-velar plosive" onclick="mapIPA('ɡ͡b','consonant',this.title);">ɡ͡b</div></td>
+												<td class="br1 bb1" colspan="2"><div class="ipa" name="consonant" title="Voiced labial-velar nasal" onclick="mapIPA('ŋ͡m','consonant',this.title);">ŋ͡m</div></td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table><!--end of phonemes2ipaTable table-->
+				</div><!--end of ipaGroup div-->
+
+			</div><!--end of lang_data_sub div-->
+		</div>
+
+		<div id="segmenting" class="main-content-div">
+			<h1 class="step">Step 5: Segment the word list </h1>
+			<p><button name="segment" onclick="start_seg();">Segment Word Lists from Language Data tab</button>&nbsp;&nbsp;<span id="stopwatch_a"></span></p>
+			<p><label for="replaceExistingGPCAnalysis"><input id="replaceExistingGPCAnalysis" class="" type="checkbox" /> Replace existing analysis (careful!)</label> </p>
+			<table id="segment" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr id="segmentResidue" class="is-none">
+						<td id="segment2">
+							<div class="segmented">
+								<p>Residue Words: <span id="residue_words_count"></span> </p>
+								<textarea class="fs vernacular" id="residue" name="residue"></textarea>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td id="segment1">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+<!--
+		 <div id="use_external_data">
+		  <button name="externally_segmented" onclick="seg_external();">Use externally segmented word list</button><br />
+		  <p style="color:red;">When to use this button </p>
+		 </div>
+-->
+		</div><!--end of segmenting div-->
+
+
+		<div id="phonotactics" class="main-content-div">
+		<h1>Phonotactics </h1>
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td id="cgraphemes">
+							<h3>Single Consonants</h3>
+							<div class="left">Initial<br />
+								<textarea class="g4 fs vernacular" id="wic" name="phonotactics" data-how_many="1" data-where="wic"></textarea>
+							</div>
+							<div class="left">Medial<br />
+								<textarea class="g4 fs vernacular" id="wmc" name="phonotactics" data-how_many="1" data-where="wmc"></textarea>
+							</div>
+							<div class="left">Final<br />
+								<textarea class="g4 fs vernacular" id="wfc" name="phonotactics" data-how_many="1" data-where="wfc"></textarea>
+							</div>
+					</td>
+					<td id="ccgraphemes">
+						<h3>Consonant Clusters</h3>
+						<div class="left">Initial<br />
+							<textarea class="g4 fs vernacular" id="wicc" name="phonotactics" data-how_many="1" data-where="wicc"></textarea>
+						</div>
+						<div class="left">Medial<br />
+							<textarea class="g4 fs vernacular" id="wmcc" name="phonotactics" data-how_many="1" data-where="wmcc"></textarea>
+						</div>
+						<div class="left">Final<br />
+							<textarea class="g4 fs vernacular" id="wfcc" name="phonotactics" data-how_many="1" data-where="wfcc"></textarea>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td id="vgraphemes">
+					 <h3>Single Vowels</h3>
+					  <div class="left">Initial<br />
+					   <textarea class="g4 fs vernacular" id="wiv" name="phonotactics" data-how_many="1" data-where="wiv"></textarea>
+					  </div>
+					  <div class="left">Medial<br />
+					   <textarea class="g4 fs vernacular" id="wmv" name="phonotactics" data-how_many="1" data-where="wmv"></textarea>
+					  </div>
+					  <div class="left">Final<br />
+					   <textarea class="g4 fs vernacular" id="wfv" name="phonotactics" data-how_many="1" data-where="wfv"></textarea>
+					  </div>
+					</td>
+					<td id="vcgraphemes">
+					 <h3>Vowel Clusters</h3>
+					  <div class="left">Initial<br />
+					   <textarea class="g4 fs vernacular" id="wivc" name="phonotactics" data-how_many="1" data-where="wivc"></textarea>
+					  </div>
+					  <div class="left">Medial<br />
+					   <textarea class="g4 fs vernacular" id="wmvc" name="phonotactics" data-how_many="1" data-where="wmvc"></textarea>
+					  </div>
+					  <div class="left">Final<br />
+					   <textarea class="g4 fs vernacular" id="wfvc" name="phonotactics" data-how_many="1" data-where="wfvc"></textarea>
+					  </div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+<!--
+		 <div id="syllablestructures">
+		  <h3>Syllable Shapes</h3>
+		  <textarea class="g5" id="syllshapes" name="syllshapes"></textarea>
+		 </div>
+-->
+		</div><!--end of phonotactics div-->
+
+		<div id="output" class="main-content-div">
+			<div id="output_formats">
+			<h1 class="step">Step 6: Choose the output format </h1>
+
+				<div id="format_plain_group" class="">
+					<label for="format_plain">
+					<input id="format_plain" name="format" onclick="checkcss(this.id);" type="radio" />
+					Plain words</label> <br />
+					<div class="output_content">
+						<div id="format_plain_options" class="is-none" name="format_option">
+							<label onclick="toggleCheckedByName('format_plain_option')">&#x2611; Toggle all</label><br />
+							<input id="cumulative_seq" checked="checked" type="checkbox">
+							<label for="cumulative_seq">Cumulative from 1 syllable</label> <br>
+							<input id="format_plain_sort" name="format_plain_option" type="checkbox" /><label for="format_plain_sort">Sort word list alphabetically</label><br />
+						</div>
+					</div>
+				</div><!--end of output_group_plain div-->
+
+				<div id="format_html_group" class="">
+					<label for="format_html">
+					<input id="format_html" name="format" onclick="checkcss(this.id);" type="radio" />
+					SynPhony web page</label>
+					<br />
+					<div class="output_content">
+						<div id="format_html_options" class="is-none" name="format_option">
+							<div>Save the following in the root folder</div>
+							<div>
+								<button onclick="saveAsFile('synphony');">Save SynPhony.html file</button>
+
+								<span class="filename">Filename: <span id="synphony_filename">.html</span></span>
+							</div>
+							<div>Save the following in the data folder. Do NOT change the name!</div>
+							<div>
+								<button onclick="saveAsFile('langdata');">Save langdata.js file</button>
+
+								<span class="filename">Filename: <span id="langdata_filename">.js</span></span>
+							</div>
+						</div><!--end of format_html_options div-->
+					</div>
+				</div><!--end of output_group_html div-->
+
+				<br />
+				<h1>Words sorted by syllable length</h1>
+				<span>Time: <span id="stopwatch_b">0</span> seconds</span><br />
+				<div id="syll_table"><span style="color:red;">NO OUTPUT BUTTONS. To output your data you
+					first need to work through the Language Data tab and the Segmenting tab. Then come back to the Output tab
+					and press one of the buttons that will appear in this space.</span>
+				</div>
+				<label for="appendToOutputArea"><input id="appendToOutputArea" name="appendToOutputArea" type="checkbox" /> Append output to Output Area</label><br />
+			</div><!--end of output_formats div-->
+			<div>
+				<h1>Final output area</h1>
+				<span id="selectFinalOutput" title="Select all text in the box" onclick="selectFinalOutput();">Select Output</span>
+				<textarea class="fs vernacular" id="final_output" name="final_output" ></textarea>
+			</div>
+		</div><!--end of output div-->
+
+		<div id="about" class="main-content-div">
+			<h1>About this web page</h1>
+			<p>I hope this software will prove useful in promoting literacy skills in many languages,
+				especially minority languages, around the world. Built-in support is provided for a variety
+				of writing systems, but these have not all been tested yet. I would appreciate feedback from
+				anyone who uses this page with a non-Roman script.
+			</p>
+			<p>If you use this page and the companion SynPhony program for developing literacy materials I
+				would appreciate hearing about it. Countless hours have gone into developing these tools and
+				the best reward I can think of is hearing how people are actually using them. So, please
+				<span id="mail2"></span> and let me know how and where you are using it.
+			</p>
+			<p>If you have the ability and interest to help develop this tool, please <span id="mail3"></span>
+				and let me know how you would like to contribute.
+			</p>
+<!--
+			<h2>License</h2>
+			<p>This software is provided <q>as-is</q>, without any express or implied warranty. Because it
+				is provided free of charge you are not entitled to free technical support. Even though it is
+				free you do not have unrestricted rights to do with this page as you please. The author
+				retains all rights to this page. You do not have the right to post this page on the internet.
+				You do not have the right to sell, rent or license this page to anyone. You do not have the
+				right to extract portions of this page and  use it in combination with any other products.
+				You may not use this page for commercial purposes. You may, of course, use the  results of
+				this page (language material arranged for teaching literacy) to construct literacy materials
+				that may (or may not) be sold to cover the costs of printing, distribution, etc.
+			</p>
+-->
+			<h2>Browser Issues</h2>
+			<p>This page has been tested and works with Firefox, Safari and Chrome. (Google Chrome can be
+				started with the flag "-allow-file-access-from-files" in order to work properly offline.) I
+				recommended using <a href="http://www.mozilla.org/" target="_blank">Firefox</a>. I have not
+				figured out how to get other browsers to read data files when the program runs from the
+				local disk. Hopefully this will change in future versions.
+			</p>
+			<p>For the SynPhony program, the following browsers have some issues. If the writing system uses
+				zero-spaced characters (most Indic and East Asian scripts, among others) Chrome, Opera, and
+				Safari don't work correctly yet; Firefox and IE9+ work well. For Roman scripts all the major
+				browsers are fine.
+			</p>
+			<p>Internet Explorer and Google Chrome don't run this file or SynPhony locally (off your hard drive),
+				but have no problem running it from a web server. Firefox and Safari have no problems with local
+				files. So far, only Firefox has support for complex scripts that require Graphite font technology.
+				You can get instructions for enabling Graphite font processing in Firefox
+				<a href="http://scripts.sil.org/cms/scripts/page.php?site_id=projects&amp;item_id=graphite_firefox">here</a>.
+			</p>
+		</div><!--end of about div-->
+	</div><!--end of content-container div-->
+	<div id="footer">
+		<p style="width: 600px; margin: auto;"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img style="border-style: none;" src="http://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0" /></a><br />To the extent possible under law, <a href="http://www.canil.ca" rel="dct:publisher" target="_blank" style=" font-size: inherit;"> Canada Institute of Linguistics</a> has waived all copyright and related or neighbouring rights to this software and code. This work is published from: Canada.</p>
+	</div><!--end of footer div-->
+</div><!--end of container div-->
+
+<script type="text/javascript" src="javascript/underscore-min.js"></script>
+<script type="text/javascript" src="javascript/underscore.string.min.js"></script>
+<script type="text/javascript" src="javascript/helpers.js"></script>
+<script type="text/javascript" src="javascript/segmentation_ce.js"></script>
+<script type="text/javascript" src="javascript/unicode_cv_categories.js"></script>
+<script type="text/javascript" src="javascript/xregexp.js"></script>
+<script type="text/javascript" src="javascript/xregexp-unicode-base.js"></script>
+<script type="text/javascript" src="javascript/xregexp-unicode-blocks.js"></script>
+<script type="text/javascript" src="javascript/xregexp-unicode-categories.js"></script>
+<script type="text/javascript" src="javascript/xregexp-unicode-scripts.js"></script>
+<script type="text/javascript" src="javascript/ipa_feature_arrays.js"></script>
+<script type="text/javascript" src="javascript/conversionfunctions.js"></script>
+<script type="text/javascript" src="javascript/FileSaver.js"></script>
+<script type="text/javascript" src="javascript/uuid.js"></script>
+
+</body>
+</html>

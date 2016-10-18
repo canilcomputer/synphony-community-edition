@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Help for SynPhony Activity Pages</title>
+  <link href="../css/synphony.css" type="text/css" title="normal" media="all" rel="stylesheet">
+  <link href="../css/help.css" type="text/css" title="normal" media="all" rel="stylesheet">
+</head>
+<body>
+<h1>SynPhony Help</h1>
+<h2>Story Checking Tool</h2>
+<img alt="" src="../graphics/story_tool_page.png">
+<p>The Story Checking Tool lets you type or paste a sentence or story into the text box and check
+to see how much of the text can be read by a student. </p>
+
+<h3>Legend</h3>
+<p>The Legend indicates the colors used for marking up the sentence or story.</p>
+<ul>
+	<li><span class="fo">Focus words</span> are words that are usable in a lesson because they have the letter which the
+		lesson focusses on.</li>
+	<li><span class="cu">Good words</span> are words that are readable because they contain only letters which have been
+		taught in previous lessons. These words belong to the Cumulative Word List.</li>
+	<li><span class="po">Possible words</span> that may be readable but for one reason or another SynPhony cannot know
+		for sure. This means that the user should check to see if the word is really readable or not. Some of the reasons
+		why SynPhony treats these words as Possible is that it contains all the letters that have been taught but the
+		actual word is not in the Target word list or in Good word list (or Cumulative Word List). This can happen because
+		the word is longer and the user has not selected the appropriate Syllable length checkbox. Another reason may be
+		that the word does not exist in SynPhony's database.</li>
+	<li><span class="sight">Sight words</span> are words that are needed to make a sentence or story but also contain letters
+		that have not been taught yet.</li>
+	<li>All other words will have the default background color. This indicates that the word is not
+		suitable for the lesson because it contains letters that have not been taught yet.</li>
+</ul>
+
+<h3>Sight Words section</h3>
+<p>The Sight Words section can be expanded or collapsed by clicking on the text &ldquo;Sight Words&rdquo;
+Any word you type into this text box will be considered a &ldquo;sight word&rdquo; and, if it exists in
+the story you are checking, will be highlighted with <span class="sight">this color</span>. If you need to
+specify several words then separate each word with a space.
+</p>
+
+<h3>Target Words</h3>
+<p>The Target Words section contains words that are suitable for the current lesson. The list of words reflect
+	the selections in the Options section of the Control Panel. The list of words will change depending on how many
+	syllable and the &ldquo;Show all:&rdquo; checkboxes have been selected.
+</p>
+
+<h3>Story</h3>
+<p>This textbox lets you enter a sentence or a story so you can check how much of the text is readable at any
+	particular lesson.</p>
+
+<h3><button style="font-size: 14px;">Check Story</button></h3>
+<p>Pressing this button causes SynPhony to check the text that has been entered in the textbox above
+	and add colors to words to indicate how suitable it is for a lesson.</p>
+
+
+</body>
+</html>

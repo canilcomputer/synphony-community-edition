@@ -1,0 +1,17 @@
+To the extent possible under law, The Canada Institute of Linguistics
+has waived all copyright and related or neighboring rights to 
+Synphony Community Edition software and code. 
+This work is published from: Canada 2016.
+
+DISCLAIMER: The Canada Institute of Linguistics has and does permanently 
+relinquish and waive all of its rights in the SynPhony Community Edition 
+software and code (the SynPhony Code) for the purpose of contributing to 
+the public domain, and for the benefit of the public, such that the public 
+can build upon, modify, incorporate in other works, reuse and redistribute 
+the SynPhony Code as freely as possible in any form whatsoever and for any 
+purposes, including without limitation commercial purposes.
+
+Developer: Norbert Rennert
+Email: norbert.rennert@sil.org
+
+Please contact the developer with any questions.

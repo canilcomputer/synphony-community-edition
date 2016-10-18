@@ -1,0 +1,23 @@
+ul#main_content {
+  display: table;
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  background-color: #eeeeee;
+}
+li#panel_1,
+li#panel_2,
+li#panel_3 {
+  display: table-cell;
+  margin: 0px;
+  list-style-type:none;
+  position: relative;
+  vertical-align: top;
+}
+li#panel_2 {
+  height: 100%;
+}
+li.toggle_panel {
+  width: 5px;
+  vertical-align: top;
+}

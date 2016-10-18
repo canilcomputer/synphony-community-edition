@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Help for SynPhony Activity Pages</title>
+  <link href="../css/synphony.css" type="text/css" title="normal" media="all" rel="stylesheet" />
+  <link href="../css/help.css" type="text/css" title="normal" media="all" rel="stylesheet" />
+</head>
+<body>
+<h1>SynPhony Help</h1>
+<h2>The Control Panel</h2>
+<img alt="" src="../graphics/tab_thingy.png">
+<p style="height: 140px;">The entire Control Panel can be hidden and revealed by clicking on the little tab thingy with your mouse.
+The width of the panel can be changed in the <span class="menu_ref">Settings</span>
+menu which is accessible from the <span class="menu_ref">Home</span> page.</p>
+<h3 class="u">Options Section</h3>
+<img alt="" src="../graphics/options.png">
+<p>The Options Section gives you controls for selecting words from the
+database. You may click on the header text to hide or show the section.</p>
+
+<h4>Vocabulary group: 1<input type="checkbox" /> 2<input type="checkbox" /> ...</h4>
+<p>If the database has multiple groups defined then the Vocabulary group checkboxes
+appear. They let you select vocabulary from different groups of words.
+When selected these checkboxes act as restrictive filters. At least one checkbox must
+be selected in order to search for words.</p>
+
+<h4>Syllables: 1<input type="checkbox" /> 2<input type="checkbox" /> ...</h4>
+<p>When selected these checkboxes act as restrictive filters. These checkboxes control
+how many syllables the selected words may have. At least one checkbox must be selected,
+but you may select more than one checkbox at a time. It is possible that you may not
+see any words for some selections you make.</p>
+
+<h4>Show only words with letters that have been taught:<input type="checkbox" /></h4>
+<p>When selected this checkbox acts as a restrictive filter. If this checkbox is
+selected SynPhony will restrict the list to words where all the letters
+have been taught. If it is not selected then SynPhony displays words which contain the
+last clicked letter but allows all other letters, even if they have not been taught yet.
+You can still restrict the displayed list by syllable length and vocabulary group.</p>
+
+<h4>Show only words that contain the focus letter:<input type="checkbox" /></h4>
+<p>When selected this checkbox acts as a restrictive filter.
+If this checkbox is selected SynPhony restricts the list to only show words that
+contain the focus letter (which is the last letter that was clicked).
+This focussed list finds the words that are useful for the current lesson.</p>
+
+<h4>Parts of Speech: nouns<input type="checkbox" /> verbs<input type="checkbox" />...</h4>
+<p>If the database contains parts of speech information then the Parts of Speech
+checkboxes appear. When selected these checkboxes act as restrictive filters. They
+allow you to restrict the word list to words of the selected parts of speech. If no
+checkbox is selected then there is no restriction placed on the search.</p>
+
+<h4><button style="font-size: 14px;">Clear history</button></h4>
+<p>Clicking this button clears all the selected letters and allows you to start
+over again.</p>
+
+<h3 class="u">Letters Section</h3>
+<img alt="" src="../graphics/letters.png">
+<p>The Letters Section lists the different letters or digraphs that exist in the
+language. You may click on the header text to hide or show the section.</p>
+
+<h4>Searching for words</h4>
+<p>Clicking on the letters will cause SynPhony to search for words based on the
+restrictions selected in the Options section. It is recommended to start
+by clicking on letters in the top two rows. However, it is not necessary to use the
+given order for your sequence. If you wish, you may select letters in
+<span style="font-weight: bold;">any</span> order and SynPhony will always try to find
+words which match the selected letters and display them to you. However, it is possible
+that when you click a letter that the page does not display any new words. If that
+happens you can either, 1) add another vocabulary group to the current one or,
+2) select an additional syllable length or, 3) select additional letters.</p>
+
+<h4>Letter button order</h4>
+<p>By default the letters are ordered in the most productive order from top left to bottom
+right. The productive order is one that gives you greatest increase in the number of words
+each time you introduce a new letter. You may change the order in which the letters appear
+by clicking on the <span class="menu_ref">Settings</span> icon on the
+<span class="menu_ref">Home page</span>, and then specifying a different order in the Custom
+Sequence field. You must separate each letter with a space.</p>
+
+<h4>Letter Page control <span style="padding-left: 10px;">&#x25C0; 2 &#x25B6;</span></h4>
+<p>If the language has more letters than can fit on one section then a number and a black
+triangle will appear in the header that allows you to see the next page. The number of
+letter buttons that get displayed in the Letters Section can be changed by clicking on the
+<span class="menu_ref">Settings</span> icon on the <span class="menu_ref">Home page</span>.
+The default number of letter buttons in this section is 50.
+</p>
+
+
+
+</body>
+</html>
