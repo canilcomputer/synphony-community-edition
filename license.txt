@@ -1,6 +1,6 @@
 To the extent possible under law, The Canada Institute of Linguistics
 has waived all copyright and related or neighboring rights to 
-Synphony Community Edition software and code. 
+SynPhony Community Edition software and code. 
 This work is published from: Canada 2016.
 
 DISCLAIMER: The Canada Institute of Linguistics has and does permanently 
