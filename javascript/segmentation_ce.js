@@ -36,10 +36,10 @@
 //_.str = require("underscore.string");
 
 // Mix in non-conflict functions to Underscore namespace if you want
-_.mixin(_.str.exports());
+//_.mixin(_.str.exports());
 
 // All functions, include conflict, will be available through _.str object
-_.str.include("Underscore.string", "string"); // => true
+//_.str.include("Underscore.string", "string"); // => true
 
 function $(id){return document.getElementById(id);}
 function $N(n){return document.getElementsByName(n);}
@@ -467,9 +467,9 @@ function autoScriptDetector() {
 		toggleMoreLangDataInfo();
 	}
 
-	blobChars = _.chars(blobWords);
+	blobChars = s.chars(blobWords);
 	//blobWords_lc = blobWords.toLowerCase();
-	//blobChars_lc = _.chars(blobWords_lc);
+	//blobChars_lc = s.chars(blobWords_lc);
 	blobUniqueChars = _.uniq(blobChars).sort();
 	blobUniqueChars = _.compact(blobUniqueChars);
 
@@ -743,7 +743,7 @@ function populateMasterCharacterInventory() {
 		MasterCharacterInventory[i].CVCategory = "";
 		MasterCharacterInventory[i].Wordbuilding = "false";
 		MasterCharacterInventory[i].Combining = "false";
-		MasterCharacterInventory[i].Frequency = _.count(blobWords, character);
+		MasterCharacterInventory[i].Frequency = s.count(blobWords, character);
 
 		if(_.contains(vowels, blobUniqueChars[i])) {
 			MasterCharacterInventory[i].CVCategory = "vowel";
@@ -1168,7 +1168,7 @@ function findResidueCharacters(words) {
 	//returns undefined characters in an array of words
 	//compares letters against wordbuilding chars in the MasterCharacterInventory
 	var tempGPC = collectValues(MasterCharacterInventory, "Wordbuilding", "true", "Item");
-	words = _.chars(words.join(""));
+	words = s.chars(words.join(""));
 	var residue = _.unique(_.difference(words, tempGPC));
 	if(residue.length > 0) {
 		return residue;
@@ -1397,7 +1397,7 @@ function fillPhonotactics() {
 					MasterPhonotacticsList["wfcc"].push(temp);
 				}
 				gpcform = _.initial(gpcform, gotit[0].length);
-				cvcform = _.strLeftBack(cvcform, gotit[0]);
+				cvcform = s.strLeftBack(cvcform, gotit[0]);
 			} else if(/v$/.test(cvcform)) {//match ending vowels
 				gotit = cvcform.match(/(v+)$/);
 				if(gotit[0].length === 1) {//single vowels
@@ -1410,7 +1410,7 @@ function fillPhonotactics() {
 					MasterPhonotacticsList["wfvc"].push(temp);
 				}
 				gpcform = _.initial(gpcform, gotit[0].length);
-				cvcform = _.strLeftBack(cvcform, gotit[0]);
+				cvcform = s.strLeftBack(cvcform, gotit[0]);
 			} else if(/o$/.test(cvcform)) {//match beginning other characters
 				gotit = cvcform.match(/(o+)$/);
 				if(gotit[0].length === 1){//single other
@@ -1423,7 +1423,7 @@ function fillPhonotactics() {
 					MasterPhonotacticsList["wfoc"].push(temp);
 				}
 				gpcform = _.initial(gpcform);
-				cvcform = _.strLeftBack(cvcform, gotit[0]);
+				cvcform = s.strLeftBack(cvcform, gotit[0]);
 			}
 			//we've found and stripped off word initial vowels and consonants
 			//now we only have word medial letters left.
@@ -1459,7 +1459,7 @@ function fillPhonotactics() {
 						MasterWordList[a]["wmo"] = temp;
 						MasterPhonotacticsList["wmo"].push(temp);
 					} else {//other clusters
-						temp.push(_.first(gpcform, gotit[0].length).join(","));
+						temp = (_.first(gpcform, gotit[0].length).join(","));
 						MasterWordList[a]["wmoc"] = temp;
 						MasterPhonotacticsList["wmoc"].push(temp);
 					}
@@ -2097,7 +2097,7 @@ function storeLanguageName() {
 	}
 	if(langname.length > 0 && ethno_code.length > 0 ){
 		//current_language = ethno_code;
-		languages_list = dbGet("languages_list");
+		languages_list = languages_list ? dbGet("languages_list") : [];
 		if(_.findWhere(languages_list, {"LangName": langname, "LangID": ethno_code}) === undefined){
 			languages_list.push({"LangName": langname,"LangID": ethno_code, "LocalName": LangMetaData.LocalName});
 			dbSet("languages_list",languages_list);
@@ -2448,44 +2448,43 @@ function createSynPhonyHTMLFile() {
 	//two things are changed through variables in the code below
 	//  1) in the <title> tag: " + langname + "
 	//  2) the lang_data.js file name in a script tag: " + lang_name_lc + "
-	//getLanguageName();
 	var html_page =
-		"<!DOCTYPE html>\n"+
-		"<html lang=\"en\">\n"+
-		"<head>\n"+
-		"	<title>SynPhony in " + langname + "<\/title>\n"+
-		"	<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" \/>\n"+
-		"	<meta http-equiv=\"content-type\" content=\"text\/html; charset=utf-8\" \/>\n"+
-		"	<link href=\"css\/synphony4.css\" type=\"text\/css\" media=\"all\" rel=\"stylesheet\" \/>\n"+
-		"	<link href=\"css\/desktop.css\"  type=\"text\/css\" media=\"screen and (min-width: 600px)\" rel=\"stylesheet\" \/>\n"+
-		"<\/head>\n"+
-		"<body>\n"+
-		"	<div id=\"top_bar\"><\/div>\n"+
-		"	<ul id=\"main_content\">\n"+
-		"		<li id=\"panel_1\" class=\"\" style=\"\"><\/li>\n"+
-		"		<li id=\"panel_2\" class=\"\" style=\"\"><\/li>\n"+
-		"		<li id=\"panel_3\" class=\"\" style=\"\">\n"+
-		"			<div id=\"loading_data\" style=\"margin-top: 3em; font-size: 1.2em; text-align: center;\">Loading&hellip;<\/div>\n"+
-		"		<\/li>\n"+
-		"	<\/ul>\n"+
-		"	<div id=\"footer\">\n"+
-		"		<div id=\"footer_content\">\n"+
-		"			SynPhony Community Edition\n"+
+		"<!DOCTYPE html>\n" +
+		"<html lang=\"en\">\n" +
+		"<head>\n" +
+		"	<title>SynPhony in " + langname + "<\/title>\n" +
+		"	<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" \/>\n" +
+		"	<meta http-equiv=\"content-type\" content=\"text\/html; charset=utf-8\" \/>\n" +
+		"	<link href=\"css\/synphony_ce.css\" type=\"text\/css\" media=\"all\" rel=\"stylesheet\" \/>\n" +
+		"	<link href=\"css\/desktop.css\"  type=\"text\/css\" media=\"screen and (min-width: 600px)\" rel=\"stylesheet\" \/>\n" +
+		"<\/head>\n" +
+		"<body>\n" +
+		"	<div id=\"top_bar\"><\/div>\n" +
+		"	<ul id=\"main_content\">\n" +
+		"		<li id=\"panel_1\" class=\"\" style=\"\"><\/li>\n" +
+		"		<li id=\"panel_2\" class=\"\" style=\"\"><\/li>\n" +
+		"		<li id=\"panel_3\" class=\"\" style=\"\">\n" +
+		"			<div id=\"loading_data\" style=\"margin-top: 3em; font-size: 1.2em; text-align: center;\">Loading&hellip;<\/div>\n" +
+		"		<\/li>\n" +
+		"	<\/ul>\n" +
+		"	<div id=\"footer\">\n" +
+		"		<div id=\"footer_content\">\n" +
+		"			SynPhony Community Edition\n" +
 		"			<p style=\"width: 600px; margin: auto;\"><a href=\"http://creativecommons.org/publicdomain/zero/1.0/\" rel=\"license\"><img style=\"border-style: none;\" src=\"http://i.creativecommons.org/p/zero/1.0/88x31.png\" alt=\"CC0\" /></a><br />To the extent possible under law, <a href=\"http://www.canil.ca\" rel=\"dct:publisher\">Canada Institute of Linguistics</a> has waived all copyright and related or neighbouring rights to SynPhony Community Edition software and code. This work is published from: Canada.<\/p>" +
-		"			Feedback welcome: <span id=\"mail\"><\/span>\n"+
-		"		<\/div>\n"+
-		"	<\/div>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/underscore-min.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/underscore.string.min.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/helpers.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/synphony_lib_ce.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/synphony_ce.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"data\/" + lang_name_lc + "_lang_data.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/xregexp.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/xregexp-unicode-base.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/xregexp-unicode-categories.js\"><\/script>\n"+
-		"	<script type=\"text\/javascript\" src=\"javascript\/gridstyles.js\"><\/script>\n"+
-		"<\/body>\n"+
+		"			Feedback welcome: <span id=\"mail\"><\/span>\n" +
+		"		<\/div>\n" +
+		"	<\/div>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/underscore-min.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/underscore.string.min.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/helpers.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/synphony_lib_ce.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/synphony_ce.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"data\/" + lang_name_lc + "_lang_data.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/xregexp.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/xregexp-unicode-base.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/xregexp-unicode-categories.js\"><\/script>\n" +
+		"	<script type=\"text\/javascript\" src=\"javascript\/gridstyles.js\"><\/script>\n" +
+		"<\/body>\n" +
 		"<\/html>";
 
 	return html_page;
@@ -2509,7 +2508,7 @@ function createJSONLangDataExport() {
 		if(comma) {
 			sFormattedOutput += ",";
 		}
-		sFormattedOutput += '\n\t"' + abc + '": ' + JSON.stringify(LangMetaData[abc]);
+		sFormattedOutput += '\n\t"' + abc + '":' + JSON.stringify(LangMetaData[abc]);
 		comma = true;
 	}
 	sFormattedOutput += ",";
